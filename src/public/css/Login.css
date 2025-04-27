@@ -35,15 +35,16 @@ input {
 }
 
 button {
-    width: 100px;
-    height: 35px;
+    padding: 10px 13px;
     background-color: yellow;
     border: none;
-    box-shadow: 1px 1px 5px #96959546;
     border-radius: 5px;
-    font-weight: 600;
     cursor: pointer;
+    color: #000;
+    font-weight: bold;
     transition: 0.1s;
+    outline: none;
+    box-shadow: 1px 1px 5px #96959546;
 }
 
 button:active {
