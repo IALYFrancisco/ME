@@ -6,6 +6,7 @@ const { api_router } = require('./src/Controllers/APIsController')
 const path = require('path')
 const { authentication_router } = require('./src/Controllers/AuthenticationController')
 const { getRoot } = require('./src/Services/AuthenticationServices')
+const { dashboard_router } = require('./src/Controllers/DashboardController')
 
 dotenv.config()
 
@@ -26,6 +27,8 @@ app.use('/project', checkAPIKey, project_router)
 app.use('/api', api_router)
 
 app.use('/authentication', authentication_router)
+
+app.use('/backoffice', dashboard_router)
 
 app.listen(process.env.APP_PORT, () => {
     console.log(`L'application s'exécute sur ${process.env.APP_ADDRESS}`)
