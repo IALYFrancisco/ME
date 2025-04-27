@@ -1,6 +1,10 @@
 {
   "name": "me",
   "version": "1.0.0",
+  "scripts":{
+    "start:dev": "nodemon",
+    "start:prod": "node index.js"
+  },
   "dependencies": {
     "body-parser": "^2.2.0",
     "connect-flash": "^0.1.1",
