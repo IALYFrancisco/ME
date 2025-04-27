@@ -1,6 +1,6 @@
 const express = require('express')
 const dotenv = require('dotenv')
-const { project_router } = require('./Controllers/ProjectsController')
+const { project_router } = require('./src/Controllers/ProjectsController')
 
 dotenv.config()
 
