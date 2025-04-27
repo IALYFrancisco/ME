@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const productSchema = mongoose.Schema({
+const projectSchema = mongoose.Schema({
     name: { type: String, required: true },
     type: { type: String, enum: ["website", "mobile-application", "desktop-application"], required: true },
     developers: { type: Array, required: true },
@@ -11,8 +11,8 @@ const productSchema = mongoose.Schema({
     host_url: { type: String, required: true }
 })
 
-const _Products = mongoose.model('Products', productSchema)
+const _Projects = mongoose.model('Projects', projectSchema)
 
 module.exports = {
-    Products: _Products
+    Projects: _Projects
 }
