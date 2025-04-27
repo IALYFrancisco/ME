@@ -3,12 +3,17 @@ const dotenv = require('dotenv')
 const { project_router } = require('./src/Controllers/ProjectsController')
 const { checkAPIKey } = require('./src/Services/APIServices')
 const { api_router } = require('./src/Controllers/APIsController')
+const path = require('path')
 
 dotenv.config()
 
 const app = express()
 
 app.use(express.json())
+
+app.set('view engine', 'ejs')
+
+app.set('views', path.join(__dirname, 'src/views'))
 
 app.use('/project', checkAPIKey, project_router)
 
