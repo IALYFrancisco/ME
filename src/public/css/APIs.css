@@ -124,3 +124,7 @@ table .api-actions {
     column-gap: 30px;
     padding: 10px 0;
 }
+
+td p {
+    font-size: 14px;
+}

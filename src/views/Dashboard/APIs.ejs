@@ -22,12 +22,13 @@
             </div>
             <section class="apikey-list">
                 <table>
+                <% keys.forEach(key => { %>
                     <tr>
                         <td>
-                            <p>dfvsdjibn'_tyuetjnv e_'tç_eujdnvjxgerçut</p>
+                            <p><%- key.api_key -%></p>
                         </td>
                         <td>
-                            <p>PORTFOLIO_3</p>
+                            <p><%- key.project_id -%></p>
                         </td>
                         <td>
                             <p>25 Avril 2025</p>
@@ -39,57 +40,7 @@
                             </p>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <p>dfvsdjibn'_tyuetjnv e_'tç_eujdnvjxgerçut</p>
-                        </td>
-                        <td>
-                            <p>PORTFOLIO_3</p>
-                        </td>
-                        <td>
-                            <p>25 Avril 2025</p>
-                        </td>
-                        <td>
-                            <p class="api-actions">
-                                <img src="../../img/del.png" alt="">
-                                <img src="../../img/ed.png" alt="">
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>dfvsdjibn'_tyuetjnv e_'tç_eujdnvjxgerçut</p>
-                        </td>
-                        <td>
-                            <p>PORTFOLIO_3</p>
-                        </td>
-                        <td>
-                            <p>25 Avril 2025</p>
-                        </td>
-                        <td>
-                            <p class="api-actions">
-                                <img src="../../img/del.png" alt="">
-                                <img src="../../img/ed.png" alt="">
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>dfvsdjibn'_tyuetjnv e_'tç_eujdnvjxgerçut</p>
-                        </td>
-                        <td>
-                            <p>PORTFOLIO_3</p>
-                        </td>
-                        <td>
-                            <p>25 Avril 2025</p>
-                        </td>
-                        <td>
-                            <p class="api-actions">
-                                <img src="../../img/del.png" alt="">
-                                <img src="../../img/ed.png" alt="">
-                            </p>
-                        </td>
-                    </tr>
+                <% }) %>
                 </table>
             </section>
         </section>
