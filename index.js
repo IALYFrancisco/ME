@@ -1,13 +1,13 @@
 const express = require('express')
 const dotenv = require('dotenv')
-const { api_router } = require('./Controllers/ApiController')
+const { project_router } = require('./Controllers/ProjectsController')
 
 dotenv.config()
 
 const app = express()
 
-app.use('/', api_router)
+app.use('/project', project_router)
 
-app.listen(process.env.APP_POST, () => {
+app.listen(process.env.APP_PORT, () => {
     console.log(`L'application s'exécute sur ${process.env.APP_ADDRESS}`)
 })
