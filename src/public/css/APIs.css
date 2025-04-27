@@ -93,3 +93,34 @@ button:active {
     justify-content: end;
     margin-top: 30px;
 }
+
+.apikey-list {
+    width: 100%;
+    margin-top: 30px;
+}
+
+table {
+    width: 100%;
+}
+
+td {
+    width: calc(100% / 4);
+    background-color: #5818450b;
+    padding-left: 20px;
+}
+
+td:nth-child(1) {
+    width: 35%;
+}
+
+td img {
+    width: 32.5px;
+}
+
+table .api-actions {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    column-gap: 30px;
+    padding: 10px 0;
+}
