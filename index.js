@@ -14,7 +14,7 @@ app.use(express.json())
 
 app.set('view engine', 'ejs')
 
-app.set('views', path.join(__dirname, 'src/views'))
+app.set('views', path.join(__dirname, 'src/Views'))
 
 app.use('/project', checkAPIKey, project_router)
 
