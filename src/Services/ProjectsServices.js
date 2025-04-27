@@ -16,6 +16,26 @@ async function _getAllProjects(request, response) {
     }
 }
 
+async function _addProject(request, response) {
+    try{
+        connexion()
+        let add_results = Projects(request.body)
+        await add_results.save()
+        response.status(201).json({
+            message: "Resource created.",
+            data: {_id: add_results._id}
+        })
+    }catch(_error){
+        response.status(500).json({
+            message: "Failed adding project. Maybe server error.",
+            error: _error
+        })
+    }finally{
+        disconnexion()
+    }
+}
+
 module.exports = {
-    getAllProjects : _getAllProjects
+    getAllProjects : _getAllProjects,
+    addProject: _addProject
 }

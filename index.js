@@ -6,6 +6,8 @@ dotenv.config()
 
 const app = express()
 
+app.use(express.json())
+
 app.use('/project', project_router)
 
 app.listen(process.env.APP_PORT, () => {
