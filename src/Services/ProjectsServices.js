@@ -18,7 +18,7 @@ async function _getAllProjects(request, response) {
 
 async function _addProject(request, response) {
     try{
-        connexion()
+        await connexion()
         let add_results = Projects(request.body)
         await add_results.save()
         response.status(201).json({
@@ -31,7 +31,7 @@ async function _addProject(request, response) {
             error: _error
         })
     }finally{
-        disconnexion()
+        await disconnexion()
     }
 }
 
