@@ -1,0 +1,8 @@
+@font-face {
+    font-family: ProximaSoft;
+    src: url("../font/ProximaSoft-Thin.ttf");
+}
+
+* {
+    font-family: ProximaSoft;
+}

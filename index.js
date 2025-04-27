@@ -16,6 +16,8 @@ app.set('view engine', 'ejs')
 
 app.set('views', path.join(__dirname, 'src/Views'))
 
+app.use(express.static(path.join(__dirname, 'src/Public')))
+
 app.use('/project', checkAPIKey, project_router)
 
 app.use('/api', api_router)
