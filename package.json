@@ -1,4 +1,6 @@
 {
+  "name": "me",
+  "version": "1.0.0",
   "dependencies": {
     "body-parser": "^2.2.0",
     "connect-flash": "^0.1.1",
