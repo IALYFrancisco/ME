@@ -5,6 +5,7 @@ const { checkAPIKey } = require('./src/Services/APIServices')
 const { api_router } = require('./src/Controllers/APIsController')
 const path = require('path')
 const { authentication_router } = require('./src/Controllers/AuthenticationController')
+const { getRoot } = require('./src/Services/AuthenticationServices')
 
 dotenv.config()
 
@@ -17,6 +18,8 @@ app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'src/Views'))
 
 app.use(express.static(path.join(__dirname, 'src/Public')))
+
+app.get('/', getRoot)
 
 app.use('/project', checkAPIKey, project_router)
 

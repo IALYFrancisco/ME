@@ -1,3 +1,11 @@
+function _getRoot(request, response){
+    try{
+        response.redirect('/authentication/login')
+    }catch(_error){
+        console.log(`Failed to redirect to /authentication/login: ${_error}`)
+    }
+}
+
 function _getLogin(request, response){
     try {
         response.render('Authentication/Login')
@@ -7,5 +15,6 @@ function _getLogin(request, response){
 }
 
 module.exports = {
-    getlogin: _getLogin
+    getlogin: _getLogin,
+    getRoot: _getRoot
 }
