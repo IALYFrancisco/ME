@@ -1,1 +1,5 @@
+# Dépendances de l'application
 node_modules
+
+# Fichier de variable d'environnement
+.env

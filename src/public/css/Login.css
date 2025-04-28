@@ -1,0 +1,82 @@
+@font-face {
+    font-family: ProximaSoft;
+    src: url("../font/ProximaSoft-Thin.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: ProximaSoft;
+}
+
+form {
+    width: 300px;
+    margin: 100px auto;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    height: 30px;
+    outline: none;
+    padding: 5px;
+    font-weight: 600;
+}
+
+button {
+    padding: 10px 13px;
+    background-color: yellow;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #000;
+    font-weight: bold;
+    transition: 0.1s;
+    outline: none;
+    box-shadow: 1px 1px 5px #96959546;
+}
+
+button:active {
+    transform: scale(0.95);
+    transition: 0.1s;
+}
+
+.logo-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-container h2 {
+    margin: 10px auto 30px auto;
+}
+
+.logo-container img {
+    width: 35px;
+}
+
+.message-error {
+    width: max-content;
+    padding: 10px;
+    background-color: crimson;
+    margin: 20px auto;
+    border-radius: 3px;
+}
+
+.message-error p {
+    color: white;
+    font-size: 14px;
+}
