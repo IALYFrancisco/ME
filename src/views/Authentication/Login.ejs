@@ -8,7 +8,14 @@
     <title>Login | ME</title>
 </head>
 <body>
-    <form action="">
+
+    <% if(error && error.length > 0) { %>
+        <div class="message-error">
+            <p><%- error -%></p>
+        </div>
+    <% } %>
+
+    <form action="/authentication/login" method="POST">
         <section class="logo-container">
             <a href="https://portfolio-4n0j.onrender.com/" target="_blank">
                 <img src="../../img/logo-de-IALY.png" alt="Logo de IALY" title="Logo de IALY">
