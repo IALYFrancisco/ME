@@ -3,6 +3,7 @@ const dotenv = require('dotenv')
 const path = require('path')
 const session = require('express-session')
 const body_parser = require('body-parser')
+const flash = require('connect-flash')
 const { project_router } = require('./src/Controllers/ProjectsController')
 const { checkAPIKey } = require('./src/Services/APIServices')
 const { api_router } = require('./src/Controllers/APIsController')
@@ -21,6 +22,15 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }))
+
+app.use(flash())
+
+app.use((request, response, next)=>{
+    response.locals.error = request.flash('error')
+    response.locals.success = request.flash('success')
+    response.locals.user = request.session.user
+    next()
+})
 
 app.use(express.json())
 
