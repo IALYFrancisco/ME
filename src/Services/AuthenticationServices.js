@@ -20,7 +20,11 @@ async function _postLogin(request, response){
     try{
         const { email, password } = request.body
         await connexion()
-        let user = await
+        let user = await Users.findOne({email})
+        await disconnexion()
+        if(!user){
+            
+        }
     }catch(_error){
 
     }
