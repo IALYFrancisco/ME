@@ -1,4 +1,3 @@
-const bcrypt = require('bcry')
 const { connexion, disconnexion } = require("./DbServices")
 
 function _getRoot(request, response){
@@ -40,5 +39,5 @@ function _getLogin(request, response){
 module.exports = {
     getlogin: _getLogin,
     getRoot: _getRoot,
-    postLogin: _postLogin
+    // postLogin: _postLogin
 }
