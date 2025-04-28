@@ -16,7 +16,7 @@ function _getLogin(request, response){
 
 async function _postLogin(request, response){
     try{
-        
+
     }catch(_error){
 
     }
@@ -24,5 +24,6 @@ async function _postLogin(request, response){
 
 module.exports = {
     getlogin: _getLogin,
-    getRoot: _getRoot
+    getRoot: _getRoot,
+    postLogin: _postLogin
 }
