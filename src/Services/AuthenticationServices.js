@@ -36,8 +36,15 @@ function _getLogin(request, response){
 //     return await b
 // }
 
+function _isAuthenticated(request, response, next){
+    if(request.session.user) return next()
+    request.flash('error', 'You must be connected.')
+    return response.redirect('/authentication/login')
+}
+
 module.exports = {
     getlogin: _getLogin,
     getRoot: _getRoot,
-    // postLogin: _postLogin
+    // postLogin: _postLogin,
+    isAuthenticated: _isAuthenticated
 }
