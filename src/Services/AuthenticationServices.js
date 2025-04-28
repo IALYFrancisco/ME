@@ -1,3 +1,4 @@
+const bcrypt = require('bcry')
 const { connexion, disconnexion } = require("./DbServices")
 
 function _getRoot(request, response){
@@ -16,19 +17,25 @@ function _getLogin(request, response){
     }
 }
 
-async function _postLogin(request, response){
-    try{
-        const { email, password } = request.body
-        await connexion()
-        let user = await Users.findOne({email})
-        await disconnexion()
-        if(!user){
-            
-        }
-    }catch(_error){
+// async function _postLogin(request, response){
+//     try{
+//         const { email, password } = request.body
+//         await connexion()
+//         let user = await Users.findOne({email})
+//         await disconnexion()
+//         if(!user){
+//             request.flash('error', "User doesn't exist.")
+//             return response.redirect("authentication/login")
+//         }
+//         if(user && )
+//     }catch(_error){
 
-    }
-}
+//     }
+// }
+
+// async function comparePassword(plainPassword, hashedPassword) {
+//     return await b
+// }
 
 module.exports = {
     getlogin: _getLogin,
