@@ -1,3 +1,5 @@
+const { connexion, disconnexion } = require("./DbServices")
+
 function _getRoot(request, response){
     try{
         response.redirect('/authentication/login')
@@ -16,7 +18,9 @@ function _getLogin(request, response){
 
 async function _postLogin(request, response){
     try{
-
+        const { email, password } = request.body
+        await connexion()
+        let user = await
     }catch(_error){
 
     }
