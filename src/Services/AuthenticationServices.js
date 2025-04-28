@@ -14,6 +14,14 @@ function _getLogin(request, response){
     }
 }
 
+async function _postLogin(request, response){
+    try{
+        
+    }catch(_error){
+
+    }
+}
+
 module.exports = {
     getlogin: _getLogin,
     getRoot: _getRoot
