@@ -5,9 +5,9 @@ const { Clients } = require('../Models/ClientsModel')
 
 function _checkAPIKey(request, response, next){
     try{
-        let api_key = request.header("x-api-key")
-        let API_KEYS = ["mysecret_aapi_key"]
-        if(!api_key || !API_KEYS.includes(api_key)){
+        let _api_key = request.header("x-api-key")
+        let client = Clients.findOne({api_key : _api_key})
+        if(!_api_key || !client){
             return response.status(403).json({
                 message: "Clé api invalide."
             })

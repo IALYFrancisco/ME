@@ -6,6 +6,13 @@ const _project_router = express.Router()
 
 var allowedOrigins = []
 
+function checkOrigin(request, response, next){
+    console.log(request.origin)
+    next()
+}
+
+_project_router.use(checkOrigin)
+
 _project_router.use(cors({
     origin: function(_origin, callback){
         if(!_origin || allowedOrigins.includes(_origin)){
