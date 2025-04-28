@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../css/APIs.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../img/logo-de-IALY.png" type="image/x-icon">
+    <title>APIs | Backoffice - ME</title>
+</head>
+<body>
+    <main class="container">
+        <section class="left">
+            <%- include('Sidebar') -%>
+        </section>
+        <section class="right">
+            <%- include('Header') -%>
+            <div class="title-container">
+                <h1>APIs</h1>
+            </div>
+            <div class="actions">
+                <button>Generate API key</button>
+            </div>
+            <section class="apikey-list">
+                <table>
+                <% keys.forEach(key => { %>
+                    <tr>
+                        <td>
+                            <p><%- key.api_key -%></p>
+                        </td>
+                        <td>
+                            <p><%- key.project_id -%></p>
+                        </td>
+                        <td>
+                            <p>25 Avril 2025</p>
+                        </td>
+                        <td>
+                            <p class="api-actions">
+                                <img src="../../img/del.png" alt="">
+                                <img src="../../img/ed.png" alt="">
+                            </p>
+                        </td>
+                    </tr>
+                <% }) %>
+                </table>
+            </section>
+        </section>
+    </main>
+</body>
+</html>
