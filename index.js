@@ -1,9 +1,10 @@
 const express = require('express')
 const dotenv = require('dotenv')
+const path = require('path')
+const session = require('express-session')
 const { project_router } = require('./src/Controllers/ProjectsController')
 const { checkAPIKey } = require('./src/Services/APIServices')
 const { api_router } = require('./src/Controllers/APIsController')
-const path = require('path')
 const { authentication_router } = require('./src/Controllers/AuthenticationController')
 const { getRoot } = require('./src/Services/AuthenticationServices')
 const { dashboard_router } = require('./src/Controllers/DashboardController')
@@ -11,6 +12,12 @@ const { dashboard_router } = require('./src/Controllers/DashboardController')
 dotenv.config()
 
 const app = express()
+
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true
+}))
 
 app.use(express.json())
 
