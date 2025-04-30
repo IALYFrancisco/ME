@@ -16,25 +16,25 @@ function _getLogin(request, response){
     }
 }
 
-// async function _postLogin(request, response){
-//     try{
-//         const { email, password } = request.body
-//         await connexion()
-//         let user = await Users.findOne({email})
-//         await disconnexion()
-//         if(!user){
-//             request.flash('error', "User doesn't exist.")
-//             return response.redirect("authentication/login")
-//         }
-//         if(user && )
-//     }catch(_error){
+async function _postLogin(request, response){
+    try{
+        const { email, password } = request.body
+        await connexion()
+        let user = await Users.findOne({email})
+        await disconnexion()
+        if(!user){
+            request.flash('error', "User doesn't exist.")
+            return response.redirect("authentication/login")
+        }
+        // if(user && )
+    }catch(_error){
 
-//     }
-// }
+    }
+}
 
-// async function comparePassword(plainPassword, hashedPassword) {
-//     return await b
-// }
+async function comparePassword(plainPassword, hashedPassword) {
+    return await b
+}
 
 function _isAuthenticated(request, response, next){
     if(request.session.user) return next()
