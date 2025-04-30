@@ -1,4 +1,6 @@
+const { Users } = require("../Models/UsersModel")
 const { connexion, disconnexion } = require("./DbServices")
+const bcrypt = require('bcrypt')
 
 function _getRoot(request, response){
     try{
@@ -21,19 +23,31 @@ async function _postLogin(request, response){
         const { email, password } = request.body
         await connexion()
         let user = await Users.findOne({email})
-        await disconnexion()
         if(!user){
             request.flash('error', "User doesn't exist.")
-            return response.redirect("authentication/login")
+            return response.redirect("/authentication/login")
         }
-        // if(user && )
+        if(user && await comparePassword(password, user.password)){
+            request.session.user = {
+                name: user.name,
+                email: user.email,
+            }
+            return response.redirect('/backoffice')
+        }else{
+            request.flash('error', "Email or password incorrect.")
+            return response.redirect("/authentication/login")
+        }
     }catch(_error){
-
+        console.log("User connexion failure:" + _error)
+        request.flash('error', 'Failed to log in, try next time.')
+        return response.redirect("/authentication/login")
+    }finally{
+        await disconnexion()
     }
 }
 
 async function comparePassword(plainPassword, hashedPassword) {
-    return await b
+    return await bcrypt.compare(plainPassword, hashedPassword)
 }
 
 function _isAuthenticated(request, response, next){
@@ -45,6 +59,6 @@ function _isAuthenticated(request, response, next){
 module.exports = {
     getlogin: _getLogin,
     getRoot: _getRoot,
-    // postLogin: _postLogin,
+    postLogin: _postLogin,
     isAuthenticated: _isAuthenticated
 }
