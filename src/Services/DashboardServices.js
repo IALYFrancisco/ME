@@ -1,4 +1,4 @@
-const { Clients } = require("../Models/ClientsModel")
+const { APIKEYS } = require("../Models/APIKEYSModel")
 const { connexion, disconnexion } = require("./DbServices")
 
 function _getDashboard(request, response){
@@ -8,7 +8,7 @@ function _getDashboard(request, response){
 async function _getAPIs(request, response){
     try{
         await connexion()
-        let _keys = await Clients.find({})
+        let _keys = await APIKEYS.find({})
         context = {
             keys : _keys
         }

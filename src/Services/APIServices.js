@@ -1,13 +1,13 @@
 const crypto = require('crypto')
 const { connexion, disconnexion } = require('./DbServices')
 const { Projects } = require('../Models/ProjectsModel')
-const { Clients } = require('../Models/ClientsModel')
+const { APIKEYS } = require('../Models/APIKEYSModel')
 
 function _checkAPIKey(request, response, next){
     try{
-        let api_key = request.header("x-api-key")
-        let API_KEYS = ["mysecret_aapi_key"]
-        if(!api_key || !API_KEYS.includes(api_key)){
+        let _api_key = request.header("x-api-key")
+        let client = APIKEYS.findOne({api_key : _api_key})
+        if(!_api_key || !client){
             return response.status(403).json({
                 message: "Clé api invalide."
             })
@@ -44,7 +44,7 @@ async function _generateAPIKey(request, response){
         if(request.body && request.body.project_id){
             if(await checkProject(request.body.project_id)){
                 let newAPIKey = await crypto.randomBytes(32).toString('hex')
-                let newClient = Clients({
+                let newClient = APIKEYS({
                     project_id : request.body.project_id,
                     api_key: newAPIKey
                 })

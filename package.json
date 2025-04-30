@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "start:dev": "nodemon",
-    "start:prod": "node index.js"
+    "start:prod": "node index.js",
+    "create:superuser": "node ./scripts/script.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
