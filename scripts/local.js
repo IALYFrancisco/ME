@@ -1,10 +1,10 @@
 const dotenv = require('dotenv')
-const { DOTASK } = require('./services/services')
+const { LDOTASK } = require('./services/services')
 
 dotenv.config()
 
 try {
-    DOTASK()
+    LDOTASK()
 }catch(_error){
     console.log({
         message : "Failed to create superuser.",

@@ -1,5 +1,3 @@
-const { default: axios } = require("axios");
-
 const dotenv = require('dotenv')
 
 dotenv.config()
