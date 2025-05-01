@@ -23,6 +23,7 @@
             <section class="apikey-list">
                 <table>
                     <tr>
+                        <th>Names</th>
                         <th>APIKeys</th>
                         <th>Owners</th>
                         <th>Creation date</th>
@@ -30,6 +31,9 @@
                     </tr>
                 <% keys.forEach(key => { %>
                     <tr>
+                        <td>
+                            <p><%- key.name -%></p>
+                        </td>
                         <td>
                             <p><%- key.api_key -%></p>
                         </td>
