@@ -4,8 +4,9 @@
   "scripts": {
     "start:dev": "nodemon",
     "start:prod": "node index.js",
-    "create:superuser": "node ./scripts/script.js",
-    "create:superuser:local": "node ./scripts/local.js"
+    "create:superuser": "node ./scripts/email.js",
+    "create:superuser:local": "node ./scripts/local.js",
+    "create:superuser:email": "node ./scripts/email.js"
   },
   "dependencies": {
     "axios": "^1.9.0",

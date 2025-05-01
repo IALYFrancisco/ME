@@ -62,7 +62,7 @@ async function save_local(u,p){
     }
 }
 
-async function _send_email(password){
+async function send_email(password){
     try{
 
         let emaiTemplateHTML = `
@@ -192,8 +192,8 @@ async function _EDOTASK(){
     }else{
         let results = await createSuperuser()
         if(results){
-            console.log("Sauvegarde en local ...")
-            await save_local(userToCreate, Math.PI)
+            console.log("Sending by email ...")
+            await send_email(Math.PI)
         }
     }
 
