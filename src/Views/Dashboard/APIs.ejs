@@ -22,6 +22,12 @@
             </div>
             <section class="apikey-list">
                 <table>
+                    <tr>
+                        <th>APIKeys</th>
+                        <th>Owners</th>
+                        <th>Creation date</th>
+                        <th>Actions</th>
+                    </tr>
                 <% keys.forEach(key => { %>
                     <tr>
                         <td>
@@ -45,15 +51,19 @@
             </section>
         </section>
         <div class="overlay" onclick="closeModal()"></div>
-        <form action="" class="modal">
+        <form action="/api/generate-key" method="POST" class="modal">
             <h3>Generating API key</h3>
             <section>
                 <label for="name">Name :</label>
-                <input type="name" name="name" id="name" required>
+                <input type="name" name="name" id="name" required placeholder="name of api key">
             </section>
             <section>
-                <label for="password">Password :</label>
-                <input type="password" name="password" id="password" required>
+                <label for="project_id">Owner :</label>
+                <select name="project_id" id="project_id">
+                    <% projects.forEach(project => { %>
+                    <option value="<%- project._id -%>"><%- project.name -%></option>
+                    <% }) %>
+                </select>
             </section>
             <div class="button-container">
                 <button>Generate</button>
