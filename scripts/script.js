@@ -6,19 +6,6 @@ const { Users } = require('../src/Models/UsersModel')
 
 dotenv.config()
 
-async function checkSuperuser(){
-    await connexion()
-    let user = await Users.findOne({email : process.env.SUPERUSER_EMAIL})
-    if(user){
-        await disconnexion()
-        return true
-    }
-    else{
-        await disconnexion()
-        return false
-    }
-}
-
 async function hashpassword(plainText){
     return await bcrypt.hash(plainText, 10)
 }
