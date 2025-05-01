@@ -46,6 +46,12 @@ async function _postLogin(request, response){
     }
 }
 
+function _logOut(request, response){
+    request.session.destroy(()=>{
+        response.redirect("/authentication/login")
+    })
+}
+
 async function comparePassword(plainPassword, hashedPassword) {
     return await bcrypt.compare(plainPassword, hashedPassword)
 }
@@ -60,5 +66,6 @@ module.exports = {
     getlogin: _getLogin,
     getRoot: _getRoot,
     postLogin: _postLogin,
-    isAuthenticated: _isAuthenticated
+    isAuthenticated: _isAuthenticated,
+    logOut : _logOut
 }
