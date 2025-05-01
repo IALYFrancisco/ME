@@ -38,7 +38,7 @@
                             <p><%- key.api_key -%></p>
                         </td>
                         <td>
-                            <p><%- key.project_id -%></p>
+                            <p><%- projects.filter(p => p._id = key.project_id )[0].name -%></p>
                         </td>
                         <td>
                             <p>25 Avril 2025</p>

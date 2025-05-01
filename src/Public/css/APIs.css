@@ -109,6 +109,13 @@ td {
     padding-left: 20px;
 }
 
+tr th {
+    padding: 20px;
+    text-align: initial;
+    background-color: #581845;
+    color: white;
+}
+
 td:nth-child(1) {
     width: 35%;
 }
