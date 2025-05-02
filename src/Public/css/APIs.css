@@ -1,3 +1,19 @@
+::-webkit-scrollbar {
+    width: 8px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--grenat);
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+}
+
+::-webkit-scrollbar-track {
+    background: #ecf0f1;
+    border-radius: 10px;
+}
+
 :root {
     --grenat: #581845;
 }
@@ -96,6 +112,8 @@ button:active {
 
 .apikey-list {
     width: 100%;
+    height: calc(100vh - 275px);
+    overflow: auto;
     margin-top: 30px;
 }
 
@@ -201,4 +219,8 @@ input, select {
     justify-content: end;
 }
 
-
+.data {
+    width: 100%;
+    height: calc(100vh - 265px);
+    background-color: red;
+}
