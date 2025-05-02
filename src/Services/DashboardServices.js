@@ -13,9 +13,7 @@ async function _getAPIs(request, response){
         let _projects = await Projects.find({})
         let context = {
             keys : _keys,
-            projects: _projects,
-            keygenStatus: null,
-            key: null
+            projects: _projects
         }
         response.render('Dashboard/APIs', context)
     }catch(error){

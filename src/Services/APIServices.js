@@ -50,11 +50,7 @@ async function _generateAPIKey(request, response){
                     api_key: newAPIKey
                 })
                 await newClient.save()
-                let context = {
-                    keygenStatus: true,
-                    key: newClient.api_key
-                }
-                response.redirect("/backoffice/apis", 201 , context)
+                response.redirect("/backoffice/apis")
             }else{
                 response.status(203).json({
                     message: "Owner doesn't exist."
