@@ -41,29 +41,28 @@ async function checkProject(project_id){
 async function _generateAPIKey(request, response){
     try{
         await connexion()
-        if(request.body && request.body.project_id){
+        if(request.body && request.body.project_id && request.body.name){
             if(await checkProject(request.body.project_id)){
                 let newAPIKey = await crypto.randomBytes(32).toString('hex')
                 let newClient = APIKEYS({
+                    name: request.body.name,
                     project_id : request.body.project_id,
                     api_key: newAPIKey
                 })
                 await newClient.save()
-                response.status(201).json({
-                    message: "Client created successfully.",
-                    client: newClient
-                })
+                response.redirect("/backoffice/apis")
             }else{
                 response.status(203).json({
-                    message: "Project doesn't exist."
+                    message: "Owner doesn't exist."
                 })
             }
         }else{
             response.status(400).json({
-                message: "project_id is required in request body."
+                message: "Bad request, project_id and name are required in request body."
             })
         }
     }catch(_error){
+        console.log(_error)
         response.status(500).json({
             message: "Error creating client. Maybe error server.",
             error: _error 

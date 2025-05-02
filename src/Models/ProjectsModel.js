@@ -8,7 +8,8 @@ const projectSchema = mongoose.Schema({
     skills: { type: Array, required: true },
     github_url: { type: String, required: true },
     movie_file_url: { type: String, required: true },
-    host_url: { type: String, required: true }
+    host_url: { type: String, required: true },
+    register_date: { type: Date, required: true, default: Date.now }
 })
 
 const _Projects = mongoose.model('Projects', projectSchema)
