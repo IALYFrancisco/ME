@@ -50,10 +50,11 @@ async function _generateAPIKey(request, response){
                     api_key: newAPIKey
                 })
                 await newClient.save()
-                response.status(201).json({
-                    message: "Client created successfully.",
-                    client: newClient
-                })
+                let context = {
+                    keygenStatus: true,
+                    key: newClient.api_key
+                }
+                response.redirect("/backoffice/apis", 201 , context)
             }else{
                 response.status(203).json({
                     message: "Owner doesn't exist."
@@ -65,6 +66,7 @@ async function _generateAPIKey(request, response){
             })
         }
     }catch(_error){
+        console.log(_error)
         response.status(500).json({
             message: "Error creating client. Maybe error server.",
             error: _error 
