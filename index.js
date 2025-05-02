@@ -10,10 +10,15 @@ const { api_router } = require('./src/Controllers/APIsController')
 const { authentication_router } = require('./src/Controllers/AuthenticationController')
 const { getRoot, isAuthenticated } = require('./src/Services/AuthenticationServices')
 const { dashboard_router } = require('./src/Controllers/DashboardController')
+const moment = require('moment')
+
+moment.locale("en")
 
 dotenv.config()
 
 const app = express()
+
+app.locals.moment = moment
 
 app.use(body_parser.urlencoded({extended:true}))
 
