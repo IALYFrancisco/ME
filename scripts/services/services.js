@@ -29,7 +29,7 @@ async function checkSuperuser(){
 
 async function createSuperuser(){
     try{
-        console.log("Creating superuser ...")
+        console.log(chalk.yellow("Creating superuser ..."))
         userToCreate.password = await hashpassword(`${Math.PI}`)
         await connexion()
         let user = Users(userToCreate)
@@ -54,7 +54,8 @@ async function save_local(u,p){
         `{"name":"${u.name}","email":"${u.email}","password":"${p}"}`
         let filePath = path.join(dossierSuperuser, 'informations.json')
         fs.writeFileSync(filePath, fileContents, 'utf-8')
-        console.log(`Superuser informations is saved at ${filePath}`)
+        console.log(chalk.yellow(`Superuser informations is saved at ${filePath}`))
+        console.log(chalk.bgGreenBright.black('Done!'))
     }catch(err) {
         console.log({
             message: "Error saving superuser informations to local device.",
@@ -161,12 +162,12 @@ async function _LDOTASK(){
     }
 
     if(await checkSuperuser()){
-        console.log("Superuser already exist.")
+        console.log(chalk.bgYellow.black("Superuser already exist."))
         return ""
     }else{
         let results = await createSuperuser()
         if(results){
-            console.log("Sauvegarde en local ...")
+            console.log(chalk.yellow("Local informations saving ..."))
             await save_local(userToCreate, Math.PI)
         }
     }
@@ -192,7 +193,7 @@ async function _EDOTASK(){
     }
 
     if(await checkSuperuser()){
-        console.log("Superuser already exist.")
+        console.log(chalk.bgYellow.black("Superuser already exist."))
         return ""
     }else{
         let results = await createSuperuser()
