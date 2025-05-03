@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../css/APIs.css">
+    <link rel="stylesheet" href="../../css/Projects.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/logo-de-IALY.png" type="image/x-icon">
     <title>Projects | Backoffice - ME</title>
@@ -15,16 +15,16 @@
         <section class="right">
             <%- include('Header') -%>
             <div class="title-container">
-                <h1>APIs</h1>
+                <h1>Projects</h1>
             </div>
             <div class="actions">
-                <button class="keygen" onclick="showModal()">Generate API key</button>
+                <button>Add project</button>
             </div>
             <section class="apikey-list">
                 <table>
                     <tr>
                         <th>Names</th>
-                        <th>APIKeys</th>
+                        <th>Projects type</th>
                         <th>Creation date</th>
                         <th>Actions</th>
                     </tr>
@@ -40,7 +40,7 @@
                             <p><%= moment(project.creation_date).format('MMMM D YYYY [at] h:mm A') %></p>
                         </td>
                         <td>
-                            <p class="api-actions">
+                            <p class="project-actions">
                                 <img src="../../img/trash.png" alt="">
                                 <img src="../../img/edit.png" alt="">
                             </p>

@@ -156,7 +156,7 @@ td img:active {
     transform: scale(0.8);
 }
 
-table .api-actions {
+table .project-actions {
     width: 100%;
     display: flex;
     justify-content: center;
