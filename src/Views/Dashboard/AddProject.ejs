@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    </style>
+    <link rel="stylesheet" href="../assets/css/add-project.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/images/logo.png" type="image/x-icon">
+    <title>Add project - Backoffice | PORTFOLIO</title>
+</head>
+<body>
+    <form action="/backoffice/add-project" method="POST">
+        <section class="logo-container">
+            <a href="/">
+                <img src="../assets/images/logo.png" alt="Logo de IALY">
+            </a>
+            <h2>Add project</h2>
+        </section>
+        <section>
+            <label for="name">Project name</label>
+            <input type="text" name="name" id="name" required>
+        </section>
+        <section>
+            <label for="type">Type of project</label>
+            <select name="type" id="type" required>
+                <option value="website">Website</option>
+                <option value="mobile-application">Mobile application</option>
+                <option value="desktop-application">Desktop application</option>
+            </select>
+        </section>
+        <section>
+            <label for="skills">Skills</label>
+            <input type="text" name="skills" id="skills" required>
+        </section>
+        <section>
+            <label for="github_url">Github url</label>
+            <input type="text" name="github_url" id="github_url" required>
+        </section>
+        <section>
+            <label for="devlopers">Devlopers</label>
+            <input type="text" name="devlopers" id="devlopers" required>
+        </section>
+        <section>
+            <label for="movie_file_url">Movie file url</label>
+            <input type="text" name="movie_file_url" id="movie_file_url" required> 
+        </section>
+        <section>
+            <label for="host_url">Host url</label>
+            <input type="text" name="host_url" id="host_url" required>
+        </section>
+        <section>
+            <label for="descriptions">Project descriptions</label>
+            <textarea name="descriptions" id="descriptions" required></textarea>   
+        </section>
+        <section class="button-container">
+            <button>Submit</button>
+        </section>
+    </form>
+</body>
+</html>
