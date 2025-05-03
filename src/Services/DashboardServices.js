@@ -23,7 +23,12 @@ async function _getAPIs(request, response){
     }
 }
 
+function _getAddProject(request, response){
+    response.render('Dashboard/AddProject')
+}
+
 module.exports = {
     getDashboard : _getDashboard,
-    getAPIs : _getAPIs
+    getAPIs : _getAPIs,
+    getAddProject: _getAddProject
 }
