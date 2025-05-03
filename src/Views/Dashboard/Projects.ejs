@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../css/APIs.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../img/logo-de-IALY.png" type="image/x-icon">
+    <title>APIs | Backoffice - ME</title>
+</head>
+<body>
+    <main class="container">
+        <section class="left">
+            <%- include('Sidebar') -%>
+        </section>
+        <section class="right">
+            <%- include('Header') -%>
+            <div class="title-container">
+                <h1>APIs</h1>
+            </div>
+            <div class="actions">
+                <button class="keygen" onclick="showModal()">Generate API key</button>
+            </div>
+            <section class="apikey-list">
+                <table>
+                    <tr>
+                        <th>Names</th>
+                        <th>APIKeys</th>
+                        <th>Owners</th>
+                        <th>Creation date</th>
+                        <th>Actions</th>
+                    </tr>
+                <% keys.forEach(key => { %>
+                    <tr>
+                        <td>
+                            <p><%- key.name -%></p>
+                        </td>
+                        <td>
+                            <p><%- key.api_key -%></p>
+                        </td>
+                        <td>
+                            <p><%- projects.filter(p => p._id = key.project_id )[0].name -%></p>
+                        </td>
+                        <td>
+                            <p><%= moment(key.creation_date).format('MMMM D YYYY [at] h:mm A') %></p>
+                        </td>
+                        <td>
+                            <p class="api-actions">
+                                <img src="../../img/trash.png" alt="">
+                                <img src="../../img/edit.png" alt="">
+                            </p>
+                        </td>
+                    </tr>
+                <% }) %>
+                </table>
+            </section>
+        </section>
+        <div class="overlay" onclick="closeModal()"></div>
+        <form action="/api/generate-key" method="POST" class="modal">
+            <h3>Generating API key</h3>
+            <section>
+                <label for="name">Name :</label>
+                <input type="name" name="name" id="name" required placeholder="name of api key">
+            </section>
+            <section>
+                <label for="project_id">Owner :</label>
+                <select name="project_id" id="project_id">
+                    <% projects.forEach(project => { %>
+                    <option value="<%- project._id -%>"><%- project.name -%></option>
+                    <% }) %>
+                </select>
+            </section>
+            <div class="button-container">
+                <button>Generate</button>
+            </div>
+        </form>
+    </main>
+</body>
+<script src="../../js/APIs.js"></script>
+</html>

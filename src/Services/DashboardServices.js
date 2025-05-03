@@ -27,8 +27,13 @@ function _getAddProject(request, response){
     response.render('Dashboard/AddProject')
 }
 
+function _getProjects(request, response){
+    response.render('Dashboard/Projects')
+}
+
 module.exports = {
     getDashboard : _getDashboard,
     getAPIs : _getAPIs,
-    getAddProject: _getAddProject
+    getAddProject: _getAddProject,
+    getProjects: _getProjects
 }
