@@ -18,14 +18,17 @@
                 <h1>Projects</h1>
             </div>
             <div class="actions">
-                <button>Add project</button>
+                <a href="/backoffice/add-project">
+                    <button>Add project</button>
+                </a>
             </div>
             <section class="apikey-list">
                 <table>
                     <tr>
                         <th>Names</th>
                         <th>Projects type</th>
-                        <th>Creation date</th>
+                        <th>Host</th>
+                        <th>Register date</th>
                         <th>Actions</th>
                     </tr>
                 <% projects.forEach(project => { %>
@@ -37,7 +40,10 @@
                             <p><%- project.type -%></p>
                         </td>
                         <td>
-                            <p><%= moment(project.creation_date).format('MMMM D YYYY [at] h:mm A') %></p>
+                            <a href="<%- project.host_url -%>" target="_blank"><%- project.host_url -%></a>
+                        </td>
+                        <td>
+                            <p><%= moment(project.register_date).format('MMMM D YYYY [at] h:mm A') %></p>
                         </td>
                         <td>
                             <p class="project-actions">
