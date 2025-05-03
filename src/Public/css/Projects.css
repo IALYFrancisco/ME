@@ -1,3 +1,19 @@
+::-webkit-scrollbar {
+    width: 8px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--grenat);
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+}
+
+::-webkit-scrollbar-track {
+    background: #ecf0f1;
+    border-radius: 10px;
+}
+
 :root {
     --grenat: #581845;
 }
@@ -92,4 +108,62 @@ button:active {
     display: flex;
     justify-content: end;
     margin-top: 30px;
+}
+
+.apikey-list {
+    width: 100%;
+    height: calc(100vh - 275px);
+    overflow: auto;
+    margin-top: 30px;
+}
+
+table {
+    width: 100%;
+}
+
+td:nth-child(1),
+td:nth-child(2),
+td:nth-child(3),
+td:nth-child(4)
+{
+    width: calc(100% / 4);
+    padding-left: 20px;
+}
+
+td {
+    background-color: #5818450b;
+}
+
+tr th {
+    padding: 20px;
+    text-align: initial;
+    background-color: #581845;
+    color: white;
+}
+
+td:nth-child(1) {
+    width: 20%;
+}
+
+td img {
+    width: 20px;
+    cursor: pointer;
+    transition: 250ms;
+}
+
+td img:active {
+    transition: 250ms;
+    transform: scale(0.8);
+}
+
+table .api-actions {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    column-gap: 20px;
+    padding: 10px;
+}
+
+td p {
+    font-size: 14px;
 }

@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../css/Projects.css">
+    <link rel="stylesheet" href="../../css/APIs.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/logo-de-IALY.png" type="image/x-icon">
-    <title>Projects | Backoffice - ME</title>
+    <title>APIs | Backoffice - ME</title>
 </head>
 <body>
     <main class="container">
@@ -15,13 +15,44 @@
         <section class="right">
             <%- include('Header') -%>
             <div class="title-container">
-                <h1>Projects</h1>
+                <h1>APIs</h1>
             </div>
             <div class="actions">
-                <a href="/backoffice/add-project">
-                    <button>Add project</button>
-                </a>
+                <button class="keygen" onclick="showModal()">Generate API key</button>
             </div>
+            <section class="apikey-list">
+                <table>
+                    <tr>
+                        <th>Names</th>
+                        <th>APIKeys</th>
+                        <th>Owners</th>
+                        <th>Creation date</th>
+                        <th>Actions</th>
+                    </tr>
+                <% keys.forEach(key => { %>
+                    <tr>
+                        <td>
+                            <p><%- key.name -%></p>
+                        </td>
+                        <td>
+                            <p><%- key.api_key -%></p>
+                        </td>
+                        <td>
+                            <p><%- projects.filter(p => p._id = key.project_id )[0].name -%></p>
+                        </td>
+                        <td>
+                            <p><%= moment(key.creation_date).format('MMMM D YYYY [at] h:mm A') %></p>
+                        </td>
+                        <td>
+                            <p class="api-actions">
+                                <img src="../../img/trash.png" alt="">
+                                <img src="../../img/edit.png" alt="">
+                            </p>
+                        </td>
+                    </tr>
+                <% }) %>
+                </table>
+            </section>
         </section>
     </main>
 </body>
