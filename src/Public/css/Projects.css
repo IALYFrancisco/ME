@@ -143,6 +143,7 @@ tr th {
 
 td:nth-child(1) {
     width: 20%;
+    padding: 15px;
 }
 
 td img {
