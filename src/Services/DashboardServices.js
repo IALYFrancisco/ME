@@ -10,7 +10,7 @@ async function _getAPIs(request, response){
     try{
         await connexion()
         let _keys = await APIKEYS.find({})
-        let _projects = await Projects.find({})
+        let _projects = await getProjectsList()
         let context = {
             keys : _keys,
             projects: _projects
@@ -29,6 +29,18 @@ function _getAddProject(request, response){
 
 function _getProjects(request, response){
     response.render('Dashboard/Projects')
+}
+
+async function getProjectsList(){
+    try {
+        await connexion()
+        let _projects = await Projects.find({})
+        return _projects
+    }catch(err){
+        return err
+    }finally{
+        await disconnexion()
+    }
 }
 
 module.exports = {
