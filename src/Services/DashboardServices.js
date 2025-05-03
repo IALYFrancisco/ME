@@ -27,8 +27,12 @@ function _getAddProject(request, response){
     response.render('Dashboard/AddProject')
 }
 
-function _getProjects(request, response){
-    response.render('Dashboard/Projects')
+async function _getProjects(request, response){
+    let _projects = await getProjectsList()
+    context = {
+        projects: _projects
+    }
+    response.render('Dashboard/Projects', context)
 }
 
 async function getProjectsList(){
