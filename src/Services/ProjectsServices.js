@@ -35,7 +35,23 @@ async function _addProject(request, response) {
     }
 }
 
+async function _postProject(request, response){
+    try{
+        await connexion()
+        let newProject = Projects(request.body)
+        let result = await newProject.save()
+        if(result){
+            response.redirect("/backoffice/projects")
+        }
+    }catch(err){
+        console.log(err)
+    }finally {
+        await disconnexion()
+    }
+}
+
 module.exports = {
     getAllProjects : _getAllProjects,
-    addProject: _addProject
+    addProject: _addProject,
+    postProject: _postProject
 }

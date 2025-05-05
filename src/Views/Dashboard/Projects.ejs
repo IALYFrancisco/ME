@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../css/Projects.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../img/logo-de-IALY.png" type="image/x-icon">
+    <title>Projects | Backoffice - ME</title>
+</head>
+<body>
+    <main class="container">
+        <section class="left">
+            <%- include('Sidebar') -%>
+        </section>
+        <section class="right">
+            <%- include('Header') -%>
+            <div class="title-container">
+                <h1>Projects</h1>
+            </div>
+            <div class="actions">
+                <a href="/backoffice/add-project">
+                    <button>Add project</button>
+                </a>
+            </div>
+            <section class="apikey-list">
+                <table>
+                    <tr>
+                        <th>Names</th>
+                        <th>Projects type</th>
+                        <th>Host</th>
+                        <th>Register date</th>
+                        <th>Actions</th>
+                    </tr>
+                <% projects.forEach(project => { %>
+                    <tr>
+                        <td>
+                            <p><%- project.name -%></p>
+                        </td>
+                        <td>
+                            <p><%- project.type -%></p>
+                        </td>
+                        <td>
+                            <a href="<%- project.host_url -%>" target="_blank"><%- project.host_url -%></a>
+                        </td>
+                        <td>
+                            <p><%= moment(project.register_date).format('MMMM D YYYY [at] h:mm A') %></p>
+                        </td>
+                        <td>
+                            <p class="project-actions">
+                                <img src="../../img/trash.png" alt="">
+                                <img src="../../img/edit.png" alt="">
+                            </p>
+                        </td>
+                    </tr>
+                <% }) %>
+                </table>
+            </section>
+        </section>
+    </main>
+</body>
+</html>

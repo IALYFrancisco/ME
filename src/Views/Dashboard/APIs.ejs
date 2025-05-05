@@ -38,15 +38,15 @@
                             <p><%- key.api_key -%></p>
                         </td>
                         <td>
-                            <p><%- projects.filter(p => p._id = key.project_id )[0].name -%></p>
+                            <p><%- projects.find(p => p._id == key.project_id ).name -%></p>
                         </td>
                         <td>
-                            <p>25 Avril 2025</p>
+                            <p><%= moment(key.creation_date).format('MMMM D YYYY [at] h:mm A') %></p>
                         </td>
                         <td>
                             <p class="api-actions">
-                                <img src="../../img/del.png" alt="">
-                                <img src="../../img/ed.png" alt="">
+                                <img src="../../img/trash.png" alt="">
+                                <img src="../../img/edit.png" alt="">
                             </p>
                         </td>
                     </tr>
