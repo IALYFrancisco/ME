@@ -10,7 +10,7 @@ async function _getAllProjects(request, response) {
             data: projects
         })
     }catch(error){
-        console.log(error)
+        console.log({here : error})
     }finally{
         await disconnexion()
     }

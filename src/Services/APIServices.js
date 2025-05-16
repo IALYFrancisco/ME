@@ -8,6 +8,7 @@ async function _checkAPIKey(request, response, next){
         let _api_key = request.header("x-api-key")
         await connexion()
         let client = await APIKEYS.findOne({api_key : _api_key})
+        await disconnexion()
         if(!_api_key || !client){
             console.log("Clé api invalide.")
             return response.status(403).json({
@@ -24,8 +25,6 @@ async function _checkAPIKey(request, response, next){
             message: "Error server. Try later.",
             error: _error
         })
-    }finally{
-        await disconnexion()
     }
 }
 
