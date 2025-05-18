@@ -54,7 +54,7 @@ async function save_local(u,p){
         `{"name":"${u.name}","email":"${u.email}","password":"${p}"}`
         let filePath = path.join(dossierSuperuser, 'informations.json')
         fs.writeFileSync(filePath, fileContents, 'utf-8')
-        console.log(chalk.yellow(`Superuser informations is saved at ${filePath}`))
+        console.log(chalk.yellow(`Superuser informations are saved at ${filePath}`))
         console.log(chalk.bgGreenBright.black('Done!'))
     }catch(err) {
         console.log({
