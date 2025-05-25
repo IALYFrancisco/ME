@@ -47,9 +47,20 @@ async function getProjectsList(){
     }
 }
 
+function _getTasks(request, response){
+    try {
+        response.render('Dashboard/Tasks')
+    }catch(err){
+        console.log({
+            message: "Error to getting tasks page."
+        })
+    }
+}
+
 module.exports = {
     getDashboard : _getDashboard,
     getAPIs : _getAPIs,
     getAddProject: _getAddProject,
-    getProjects: _getProjects
+    getProjects: _getProjects,
+    getTasks: _getTasks
 }

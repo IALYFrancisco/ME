@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../css/Projects.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../img/logo-de-IALY.png" type="image/x-icon">
+    <title>Tasks | Backoffice - ME</title>
+</head>
+<body>
+    <main class="container">
+        <section class="left">
+            <%- include('Sidebar') -%>
+        </section>
+        <section class="right">
+            <%- include('Header') -%>
+            <div class="title-container">
+                <h1>Tasks</h1>
+            </div>
+            <div class="actions">
+                <a href="/backoffice/add-project">
+                    <button>Add task</button>
+                </a>
+            </div>
+            <section class="apikey-list">
+                <table>
+                    <tr>
+                        <th>Names</th>
+                        <th>Projects type</th>
+                        <th>Host</th>
+                        <th>Register date</th>
+                        <th>Actions</th>
+                    </tr>
+                </table>
+            </section>
+        </section>
+    </main>
+</body>
+</html>
