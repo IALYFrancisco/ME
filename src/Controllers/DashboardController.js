@@ -13,6 +13,8 @@ _dashboard_router.post('/add-project', postProject)
 
 _dashboard_router.get('/projects', getProjects)
 
+_dashboard_router.get('/tasks', getTasks)
+
 module.exports = {
     dashboard_router : _dashboard_router
 }
