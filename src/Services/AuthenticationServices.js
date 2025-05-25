@@ -72,6 +72,6 @@ module.exports = {
     getRoot: _getRoot,
     postLogin: _postLogin,
     isAuthenticated: _isAuthenticated,
-    logOut : _logOut
+    logOut : _logOut,
     zappLogin : _zappLogin
 }
