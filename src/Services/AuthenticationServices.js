@@ -73,4 +73,5 @@ module.exports = {
     postLogin: _postLogin,
     isAuthenticated: _isAuthenticated,
     logOut : _logOut
+    zappLogin : _zappLogin
 }
