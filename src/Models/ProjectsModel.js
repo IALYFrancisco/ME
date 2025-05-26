@@ -13,7 +13,7 @@ const projectSchema = mongoose.Schema({
     register_date: { type: Date, required: true, default: Date.now }
 })
 
-const _Projects = mongoose.model('Projects', projectSchema)
+const _Projects = new mongoose.model('Projects', projectSchema)
 
 module.exports = {
     Projects: _Projects

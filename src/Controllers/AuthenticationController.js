@@ -1,9 +1,9 @@
 const express = require('express')
-const { getlogin, postLogin, logOut } = require('../Services/AuthenticationServices')
+const { getlogin, postLogin, logOut, zappLogin } = require('../Services/AuthenticationServices')
 
 const _authentication_router = express.Router()
 
-_authentication_router.get('/login', getlogin)
+_authentication_router.get('/login', zappLogin, getlogin)
 
 _authentication_router.post('/login', postLogin)
 

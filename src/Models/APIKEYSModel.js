@@ -7,7 +7,7 @@ const APIKEYShcema = mongoose.Schema({
     creation_date: { type: Date, required: true, default: Date.now }
 })
 
-const _APIKEYS = mongoose.model('APIKEYS', APIKEYShcema)
+const _APIKEYS = new mongoose.model('APIKEYS', APIKEYShcema)
 
 module.exports = {
     APIKEYS : _APIKEYS

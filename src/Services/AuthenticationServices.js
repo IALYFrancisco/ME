@@ -62,10 +62,16 @@ function _isAuthenticated(request, response, next){
     return response.redirect('/authentication/login')
 }
 
+function _zappLogin(request, response, next){
+    if (request.session.user) return response.redirect('/backoffice')
+    return next()
+}
+
 module.exports = {
     getlogin: _getLogin,
     getRoot: _getRoot,
     postLogin: _postLogin,
     isAuthenticated: _isAuthenticated,
-    logOut : _logOut
+    logOut : _logOut,
+    zappLogin : _zappLogin
 }
