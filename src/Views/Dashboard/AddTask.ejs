@@ -3,14 +3,14 @@
 <head>
     <style>
     </style>
-    <link rel="stylesheet" href="../../css/AddProject.css">
+    <link rel="stylesheet" href="../../css/AddTask.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/logo-de-IALY.png" type="image/x-icon">
     <title>Add task - Backoffice | ME</title>
 </head>
 <body>
-    <form action="/backoffice/add-project" method="POST">
+    <form action="/backoffice/add-task" method="POST">
         <section class="logo-container">
             <a href="/">
                 <img src="../../img/logo-de-IALY.png" alt="Logo de IALY">
@@ -18,44 +18,12 @@
             <h2>Add task</h2>
         </section>
         <section>
-            <label for="name">Project name</label>
+            <label for="name">Task name</label>
             <input type="text" name="name" id="name" required>
         </section>
         <section>
-            <label for="type">Type of project</label>
-            <select name="type" id="type" required>
-                <option value="website">Website</option>
-                <option value="mobile-application">Mobile application</option>
-                <option value="desktop-application">Desktop application</option>
-            </select>
-        </section>
-        <section>
-            <label for="skills">Skills</label>
-            <input type="text" name="skills" id="skills" required>
-        </section>
-        <section>
-            <label for="github_url">Github url</label>
-            <input type="text" name="github_url" id="github_url" required>
-        </section>
-        <section>
-            <label for="developers">Devlopers</label>
-            <input type="text" name="developers" id="developers" required>
-        </section>
-        <section>
-            <label for="movie_file_url">Movie file url</label>
-            <input type="text" name="movie_file_url" id="movie_file_url" required> 
-        </section>
-        <section>
-            <label for="host_url">Host url</label>
-            <input type="text" name="host_url" id="host_url" required>
-        </section>
-        <section>
-            <label for="logo">Project logo</label>
-            <input type="text" name="logo" id="logo" required>
-        </section>
-        <section>
-            <label for="descriptions">Project descriptions</label>
-            <textarea name="descriptions" id="descriptions" required></textarea>   
+            <label for="description">Task descriptions</label>
+            <textarea name="description" id="description" required></textarea>   
         </section>
         <section class="button-container">
             <button>Submit</button>
