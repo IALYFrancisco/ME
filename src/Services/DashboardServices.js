@@ -1,6 +1,6 @@
 const { APIKEYS } = require("../Models/APIKEYSModel")
 const { Projects } = require("../Models/ProjectsModel")
-const Task = require("../Models/Task")
+const { Task } = require("../Models/Task")
 const { connexion, disconnexion } = require("./DbServices")
 
 function _getDashboard(request, response){
@@ -75,9 +75,10 @@ async function _postTask(request, response){
         let result = await newTask.save()
         if(result){
             console.log({message: "Task added successfully."})
+            response.redirect('/backoffice/tasks')
         }
     }catch(err){
-        console.log({message: "Error adding task."})
+        console.log({message: "Error adding task.", error: err})
     }finally{
         await disconnexion()
     }

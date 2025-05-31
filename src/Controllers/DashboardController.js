@@ -1,5 +1,5 @@
 const express = require('express')
-const { getDashboard, getAPIs, getAddProject, getProjects, getTasks, getAddTask } = require('../Services/DashboardServices')
+const { getDashboard, getAPIs, getAddProject, getProjects, getTasks, getAddTask, postTask } = require('../Services/DashboardServices')
 const { postProject } = require('../Services/ProjectsServices')
 const _dashboard_router = express.Router()
 
