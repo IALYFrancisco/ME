@@ -57,10 +57,21 @@ function _getTasks(request, response){
     }
 }
 
+function _getAddTask(request, response){
+    try{
+        response.render('Dashboard/AddTask')
+    }catch(err){
+        console.log({
+            message: "Error getting add task page."
+        })
+    }
+}
+
 module.exports = {
     getDashboard : _getDashboard,
     getAPIs : _getAPIs,
     getAddProject: _getAddProject,
     getProjects: _getProjects,
-    getTasks: _getTasks
+    getTasks: _getTasks,
+    getAddTask: _getAddTask
 }
