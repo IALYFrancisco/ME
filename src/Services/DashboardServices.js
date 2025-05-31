@@ -53,7 +53,7 @@ async function _getTasks(request, response){
         await connexion()
         let _tasks = await Task.find({})
         let context = {
-            task: _tasks
+            tasks: _tasks
         }
         response.render('Dashboard/Tasks', context)
     }catch(err){

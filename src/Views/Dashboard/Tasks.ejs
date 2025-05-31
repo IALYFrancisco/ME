@@ -24,13 +24,14 @@
             </div>
             <section class="task-list">
                 <ul>
+                <% tasks.forEach(task => { %>
                     <li class="task">
                         <div class="head">
                             <div class="task-title-container">
-                                <h3>Task title</h3>
+                                <h3><%- task.name -%></h3>
                             </div>
                             <div class="task-description">
-                                <p><i>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum tenetur quisquam sequi, adipisci voluptatem expedita</i></p>
+                                <p><i><%- task.description -%></i></p>
                             </div>
                         </div>
                         <div class="foot">
@@ -42,6 +43,7 @@
                             </div>
                         </div>
                     </li>
+                <% }) %>
                 </ul>
             </section>
         </section>
