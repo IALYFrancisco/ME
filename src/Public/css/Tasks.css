@@ -110,61 +110,78 @@ button:active {
     margin-top: 30px;
 }
 
-.apikey-list {
+.task-list {
     width: 100%;
     height: calc(100vh - 275px);
     overflow: auto;
     margin-top: 30px;
+    padding-right: 20px;
 }
 
-table {
-    width: 100%;
-}
-
-td:nth-child(1),
-td:nth-child(2),
-td:nth-child(3),
-td:nth-child(4)
-{
-    width: calc(100% / 4);
-    padding-left: 20px;
-}
-
-td {
-    background-color: #5818450b;
-}
-
-tr th {
-    padding: 20px;
-    text-align: initial;
-    background-color: #581845;
-    color: white;
-}
-
-td:nth-child(1) {
-    width: 20%;
-    padding: 15px;
-}
-
-td img {
-    width: 20px;
-    cursor: pointer;
-    transition: 250ms;
-}
-
-td img:active {
-    transition: 250ms;
-    transform: scale(0.8);
-}
-
-table .project-actions {
-    width: 100%;
+.task-list ul {
     display: flex;
-    justify-content: center;
-    column-gap: 20px;
-    padding: 10px;
+    flex-wrap: wrap;
+    gap: 25px;
 }
 
-td p {
+.task-list li {
+    width: 150px;
+    min-width: 150px;
+    height: 200px;
+    box-shadow: 1px 1px 5px #96959546;
+    border-radius: 3px;
+    border: #581845 solid 1px;
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    background: #f4dbed51;
+}
+
+.task-list li:active {
+    transform: scale(0.98);
+}
+
+.task-list li .task-title-container {
+    background-color: var(--grenat);
+    width: 100%;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.task-list h3 {
+    color: white;
+    padding: 8px 0 8px 10px;
+}
+
+.task-list .task-description {
+    padding: 8px 10px 8px 10px;
     font-size: 14px;
+    font-weight: 600;
+}
+
+.task-list .foot {
+    padding: 0 10px 5px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.foot .right {
+    margin: 0;
+    padding: 0;
+    width: max-content;
+}
+
+.foot .right p {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    width: max-content;
+}
+
+.left p {
+    font-size: 14px;
+    font-weight: 600;
 }
