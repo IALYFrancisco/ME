@@ -69,14 +69,6 @@ button:active {
     transition: 0.1s;
 }
 
-select {
-    width: 100%;
-    height: 30px;
-    outline: none;
-    font-weight: 600;
-    padding: 5px;
-}
-
 .logo-container {
     width: 100%;
     display: flex;
