@@ -48,9 +48,14 @@ async function getProjectsList(){
     }
 }
 
-function _getTasks(request, response){
+async function _getTasks(request, response){
     try {
-        response.render('Dashboard/Tasks')
+        await connexion()
+        let _tasks = await Task.find({})
+        let context = {
+            task: _tasks
+        }
+        response.render('Dashboard/Tasks', context)
     }catch(err){
         console.log({
             message: "Error to getting tasks page."
