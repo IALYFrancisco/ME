@@ -1,5 +1,6 @@
 const { APIKEYS } = require("../Models/APIKEYSModel")
 const { Projects } = require("../Models/ProjectsModel")
+const Task = require("../Models/Task")
 const { connexion, disconnexion } = require("./DbServices")
 
 function _getDashboard(request, response){
@@ -67,11 +68,27 @@ function _getAddTask(request, response){
     }
 }
 
+async function _postTask(request, response){
+    try{
+        await connexion()
+        let newTask = Task(request.body)
+        let result = await newTask.save()
+        if(result){
+            console.log({message: "Task added successfully."})
+        }
+    }catch(err){
+        console.log({message: "Error adding task."})
+    }finally{
+        await disconnexion()
+    }
+}
+
 module.exports = {
     getDashboard : _getDashboard,
     getAPIs : _getAPIs,
     getAddProject: _getAddProject,
     getProjects: _getProjects,
     getTasks: _getTasks,
-    getAddTask: _getAddTask
+    getAddTask: _getAddTask,
+    postTask: _postTask
 }
