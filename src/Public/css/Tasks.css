@@ -164,6 +164,7 @@ button:active {
     font-size: 14px;
     font-weight: 600;
     height: 125px;
+    color: black;
 }
 
 .task-description p {
@@ -184,6 +185,7 @@ button:active {
     padding: 0 10px 5px 10px;
     display: flex;
     justify-content: space-between;
+    color: black;
 }
 
 .foot .right {

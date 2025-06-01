@@ -25,24 +25,26 @@
             <section class="task-list">
                 <ul>
                 <% tasks.forEach(task => { %>
-                    <li class="task">
-                        <div class="head">
-                            <div class="task-title-container">
-                                <h3><%- task.name -%></h3>
+                    <a href="/backoffice/task/details/<%- task._id -%>">
+                        <li class="task">
+                            <div class="head">
+                                <div class="task-title-container">
+                                    <h3><%- task.name -%></h3>
+                                </div>
+                                <div class="task-description">
+                                    <p><i><%- task.description -%></i></p>
+                                </div>
                             </div>
-                            <div class="task-description">
-                                <p><i><%- task.description -%></i></p>
+                            <div class="foot">
+                                <div class="left">
+                                    <p>6 subtasks</p>
+                                </div>
+                                <div class="right">
+                                    <p>24%</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="foot">
-                            <div class="left">
-                                <p>6 subtasks</p>
-                            </div>
-                            <div class="right">
-                                <p>24%</p>
-                            </div>
-                        </div>
-                    </li>
+                        </li>
+                    </a>    
                 <% }) %>
                 </ul>
             </section>
