@@ -89,6 +89,14 @@ async function _postTask(request, response){
     }
 }
 
+function _getDetailsTask(request, response){
+    try{
+        response.render('Dashboard/DetailsTask')
+    }catch(err){
+        console.log({ message: "Error getting DetailsTask page" })
+    }
+}
+
 module.exports = {
     getDashboard : _getDashboard,
     getAPIs : _getAPIs,
@@ -96,5 +104,6 @@ module.exports = {
     getProjects: _getProjects,
     getTasks: _getTasks,
     getAddTask: _getAddTask,
-    postTask: _postTask
+    postTask: _postTask,
+    getDetailsTask: _getDetailsTask
 }
