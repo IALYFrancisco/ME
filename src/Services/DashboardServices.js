@@ -94,8 +94,10 @@ async function _getDetailsTask(request, response){
     try{
         await connexion()
         let _task = await Task.find({ _id: `${request.params.id}` })
+        let _subtasks = await SubTask.find({ task_id: request.params.id })
         let context = {
-            task: _task
+            task: _task,
+            subtasks: _subtasks
         }
         response.render('Dashboard/DetailsTask', context)
     }catch(err){

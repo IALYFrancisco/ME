@@ -21,6 +21,14 @@
                 <div class="task-description">
                     <p><%- task[0].description -%></p>
                 </div>
+                <div class="subtasks">
+                    <h4>Task subtasks:</h4>
+                    <ul>
+                        <% subtasks.forEach( subtask => {  %>
+                            <li><%- subtask.name -%></li>
+                        <% }) %>
+                    </ul>
+                </div>
             </section>
             <hr>
             <section class="right">
