@@ -28,8 +28,14 @@
                 <p class="status">Status: <span class="<%- task[0].status -%>"><%- task[0].status -%></span></p>
                 <div class="actions">
                     <img src="../../img/edit.png" alt="">
-                    <img src="../../img/engrenages.png" alt="">
-                    <form action="" method="DELETE">
+                    <form action="/backoffice/task-update/<%- task[0]._id -%>" method="POST">
+                        <input type="hidden" name="" id="" value="<%- task[0]._id -%>">
+                        <input type="hidden" name="status" id="" value="running">
+                        <button>
+                            <img src="../../img/engrenages.png" alt="">
+                        </button>
+                    </form>
+                    <form action="/backoffice/task-details/<%- task[0]._id -%>" method="POST">
                         <input type="hidden" name="" id="" value="<%- task[0]._id -%>">
                         <button>
                             <img src="../../img/trash.png" alt="">

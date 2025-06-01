@@ -60,12 +60,23 @@
     margin-bottom: 50px;
 }
 
-.status span.pending {
-    background-color: orange;
+.status span {
     padding: 3px 10px 5px 10px;
     border-radius: 40px;
     margin-left: 5px;
     font-size: 12px;
+}
+
+.status span.pending {
+    background-color: crimson;
+}
+
+.status span.running {
+    background-color: orange;
+}
+
+.status span.done {
+    background-color: green;
 }
 
 .left .task-description {

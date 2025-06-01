@@ -107,11 +107,24 @@ async function _getDetailsTask(request, response){
 async function _deleteTask(request, response){
     try{
         await connexion()
-        let result = Task.findByIdAndDelete(request.params.id)
+        let result = await Task.findByIdAndDelete(request.params.id)
         if(result) console.log({message: "Task deleted successfully."})
         response.redirect('/backoffice/tasks')
     }catch(err){
         console.log({message: "Error deleting task.", error: err})
+    }finally{
+        await disconnexion()
+    }
+}
+
+async function _putTask(request, response) {
+    try{
+        await connexion()
+        let result = await Task.findByIdAndUpdate(request.params.id, request.body)
+        if (result) console.log({message: "Task status changed successfully."})
+        response.redirect(`/backoffice/task-details/${request.params.id}`)
+    }catch(err){
+        console.log({message: "Error putting task.", error: err})
     }finally{
         await disconnexion()
     }
@@ -126,5 +139,6 @@ module.exports = {
     getAddTask: _getAddTask,
     postTask: _postTask,
     getDetailsTask: _getDetailsTask,
-    deletTask: _deleteTask
+    deletTask: _deleteTask,
+    putTask: _putTask
 }
