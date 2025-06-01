@@ -29,3 +29,114 @@
     box-sizing: border-box;
     font-family: ProximaSoft;
 }
+
+.container {
+    width: 600px;
+    margin: 100px auto;
+}
+
+.container .left {
+    width: 50%;
+}
+
+.container .right {
+    width: 50%;
+}
+
+.container .body {
+    display: flex;
+    column-gap: 50px;
+}
+
+.body .date {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.body .status {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 50px;
+}
+
+.status span.pending {
+    background-color: orange;
+    padding: 3px 10px 5px 10px;
+    border-radius: 40px;
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+.left .task-description {
+    margin-top: 20px;
+}
+
+.left p {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.logo-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.logo-container h1 {
+    margin-left: 10px;
+}
+
+.logo-container img {
+    width: 35px;
+}
+
+hr {
+    background-color: rgba(128, 128, 128, 0.496);
+    padding: 0.1px;
+    border: none;
+}
+
+.right .actions {
+    display: flex;
+    column-gap: 20px;
+}
+
+.right .actions button {
+    border: none;
+    background-color: transparent;
+}
+
+.right .actions img {
+    width: 25px;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.right .actions img:active {
+    transform: scale(0.95);
+    transition: 0.1s;
+}
+
+.button-container {
+    margin-top: 100px;
+}
+
+.button-container button {
+    padding: 10px 13px;
+    background-color: yellow;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px #96959546;
+    cursor: pointer;
+    color: #000;
+    font-weight: bold;
+    transition: 0.1s;
+    outline: none;
+}
+
+.button-container button:active {
+    transform: scale(0.95);
+    transition: 0.1s;
+}
