@@ -89,11 +89,17 @@ async function _postTask(request, response){
     }
 }
 
-function _getDetailsTask(request, response){
+async function _getDetailsTask(request, response){
     try{
-        response.render('Dashboard/DetailsTask')
+        console.log(request.params.id)
+        await connexion()
+        let _task = await Task.find({ _id: `${request.params.id}` })
+        let context = {
+            task: _task
+        }
+        response.render('Dashboard/DetailsTask', context)
     }catch(err){
-        console.log({ message: "Error getting DetailsTask page" })
+        console.log({ message: "Error getting DetailsTask page", error: err })
     }
 }
 
