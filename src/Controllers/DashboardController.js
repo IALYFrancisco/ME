@@ -1,5 +1,5 @@
 const express = require('express')
-const { getDashboard, getAPIs, getAddProject, getProjects, getTasks, getAddTask, postTask } = require('../Services/DashboardServices')
+const { getDashboard, getAPIs, getAddProject, getProjects, getTasks, getAddTask, postTask, getDetailsTask } = require('../Services/DashboardServices')
 const { postProject } = require('../Services/ProjectsServices')
 const _dashboard_router = express.Router()
 
@@ -18,6 +18,8 @@ _dashboard_router.get('/tasks', getTasks)
 _dashboard_router.get('/add-task', getAddTask)
 
 _dashboard_router.post('/add-task', postTask)
+
+_dashboard_router.get('/task/details/:id', getDetailsTask)
 
 module.exports = {
     dashboard_router : _dashboard_router
