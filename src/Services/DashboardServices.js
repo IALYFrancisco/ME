@@ -99,6 +99,21 @@ async function _getDetailsTask(request, response){
         response.render('Dashboard/DetailsTask', context)
     }catch(err){
         console.log({ message: "Error getting DetailsTask page", error: err })
+    }finally{
+        await disconnexion()
+    }
+}
+
+async function _deleteTask(request, response){
+    try{
+        await connexion()
+        let result = Task.findByIdAndDelete(request.params.id)
+        if(result) console.log({message: "Task deleted successfully."})
+        response.redirect('/backoffice/tasks')
+    }catch(err){
+        console.log({message: "Error deleting task.", error: err})
+    }finally{
+        await disconnexion()
     }
 }
 
@@ -110,5 +125,6 @@ module.exports = {
     getTasks: _getTasks,
     getAddTask: _getAddTask,
     postTask: _postTask,
-    getDetailsTask: _getDetailsTask
+    getDetailsTask: _getDetailsTask,
+    deletTask: _deleteTask
 }
