@@ -91,7 +91,6 @@ async function _postTask(request, response){
 
 async function _getDetailsTask(request, response){
     try{
-        console.log(request.params.id)
         await connexion()
         let _task = await Task.find({ _id: `${request.params.id}` })
         let context = {
