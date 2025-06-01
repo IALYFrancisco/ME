@@ -44,6 +44,9 @@
                 </div>
                 <section class="button-container">
                     <form action="" method="POST">
+                        <input type="hidden" name="task_id" value="<%- task[0]._id -%>">
+                        <label for="subtask">Subtask name:</label>
+                        <input type="text" name="name" id="subtask" required>
                         <button>Add subtask</button>
                     </form>
                 </section>
