@@ -19,7 +19,7 @@ _dashboard_router.get('/add-task', getAddTask)
 
 _dashboard_router.post('/add-task', postTask)
 
-_dashboard_router.get('/task/details/:id', getDetailsTask)
+_dashboard_router.get('/task-details/:id', getDetailsTask)
 
 module.exports = {
     dashboard_router : _dashboard_router

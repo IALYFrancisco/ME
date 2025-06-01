@@ -25,14 +25,14 @@
             <section class="task-list">
                 <ul>
                 <% tasks.forEach(task => { %>
-                    <a href="/backoffice/task/details/<%- task._id -%>">
+                    <a href="/backoffice/task-details/<%- task._id -%>">
                         <li class="task">
                             <div class="head">
                                 <div class="task-title-container">
                                     <h3><%- task.name -%></h3>
                                 </div>
                                 <div class="task-description">
-                                    <p><i><%- task.description -%></i></p>
+                                    <p><%- task.description -%></p>
                                 </div>
                             </div>
                             <div class="foot">
