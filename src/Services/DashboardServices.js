@@ -1,5 +1,6 @@
 const { APIKEYS } = require("../Models/APIKEYSModel")
 const { Projects } = require("../Models/ProjectsModel")
+const { SubTask } = require("../Models/SubTask")
 const { Task } = require("../Models/Task")
 const { connexion, disconnexion } = require("./DbServices")
 
@@ -130,6 +131,25 @@ async function _putTask(request, response) {
     }
 }
 
+async function _postSubtask(request, response){
+    try{
+        await connexion()
+        let newSubtask = SubTask(request.body)
+        let result = await newSubtask.save()
+        if(result){
+            console.log({
+                message: "Subtask added successfully."
+            })
+            console.log(request.body.task_id)
+            response.redirect(`/backoffice/task-details/${request.body.task_id}`)
+        }
+    }catch(err){
+        console.log({message: "Error adding subtask.", error: err})
+    }finally{
+        await disconnexion()
+    }
+}
+
 module.exports = {
     getDashboard : _getDashboard,
     getAPIs : _getAPIs,
@@ -140,5 +160,6 @@ module.exports = {
     postTask: _postTask,
     getDetailsTask: _getDetailsTask,
     deletTask: _deleteTask,
-    putTask: _putTask
+    putTask: _putTask,
+    postSubtask: _postSubtask
 }
