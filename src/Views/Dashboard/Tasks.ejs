@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../css/Projects.css">
+    <link rel="stylesheet" href="../../css/Tasks.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/logo-de-IALY.png" type="image/x-icon">
     <title>Tasks | Backoffice - ME</title>
@@ -18,20 +18,34 @@
                 <h1>Tasks</h1>
             </div>
             <div class="actions">
-                <a href="/backoffice/add-project">
+                <a href="/backoffice/add-task">
                     <button>Add task</button>
                 </a>
             </div>
-            <section class="apikey-list">
-                <table>
-                    <tr>
-                        <th>Names</th>
-                        <th>Projects type</th>
-                        <th>Host</th>
-                        <th>Register date</th>
-                        <th>Actions</th>
-                    </tr>
-                </table>
+            <section class="task-list">
+                <ul>
+                <% tasks.forEach(task => { %>
+                    <a href="/backoffice/task-details/<%- task._id -%>">
+                        <li class="task">
+                            <div class="head">
+                                <div class="task-title-container">
+                                    <h3><%- task.name -%></h3>
+                                </div>
+                                <div class="task-description">
+                                    <p><%- task.description -%></p>
+                                </div>
+                            </div>
+                            <div class="foot">
+                                <div class="left">
+                                    <p class="status">
+                                        <span class="<%- task.status -%>"><%- task.status -%></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                    </a>    
+                <% }) %>
+                </ul>
             </section>
         </section>
     </main>

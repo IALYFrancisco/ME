@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../css/DetailsTask.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../img/logo-de-IALY.png" type="image/x-icon">
+    <title>Details task | Backoffice - ME</title>
+</head>
+<body>
+    <main class="container">
+        <section class="logo-container">
+            <a href="/">
+                <img src="../../img/logo-de-IALY.png" alt="Logo de IALY">
+            </a>
+            <h1>Details task</h1>
+        </section>
+        <div class="body">
+            <section class="left">
+                <h3><%- task[0].name -%></h3>
+                <div class="task-description">
+                    <p><%- task[0].description -%></p>
+                </div>
+                <div class="subtasks">
+                    <h4>Task subtasks:</h4>
+                    <ul>
+                        <% subtasks.forEach( subtask => {  %>
+                            <li><%- subtask.name -%></li>
+                        <% }) %>
+                    </ul>
+                </div>
+            </section>
+            <hr>
+            <section class="right">
+                <p class="date">Registered <%= moment(task[0].register_date).format('MMMM D YYYY [at] h:mm A') %></p>
+                <p class="status">Status: <span class="<%- task[0].status -%>"><%- task[0].status -%></span></p>
+                <div class="actions">
+                    <img src="../../img/edit.png" alt="">
+                    <form action="/backoffice/task-update/<%- task[0]._id -%>" method="POST">
+                        <input type="hidden" name="" id="" value="<%- task[0]._id -%>">
+                        <input type="hidden" name="status" id="" value="running">
+                        <button>
+                            <img src="../../img/engrenages.png" alt="">
+                        </button>
+                    </form>
+                    <form action="/backoffice/task-details/<%- task[0]._id -%>" method="POST">
+                        <input type="hidden" name="" id="" value="<%- task[0]._id -%>">
+                        <button>
+                            <img src="../../img/trash.png" alt="">
+                        </button>
+                    </form>
+                </div>
+                <section class="button-container">
+                    <form action="/backoffice/add-subtask" method="POST">
+                        <input type="hidden" name="task_id" value="<%- task[0]._id -%>">
+                        <label for="subtask">Subtask name:</label>
+                        <input type="text" name="name" id="subtask" required>
+                        <button>Add subtask</button>
+                    </form>
+                </section>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

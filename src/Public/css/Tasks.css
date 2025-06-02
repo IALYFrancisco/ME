@@ -1,0 +1,213 @@
+::-webkit-scrollbar {
+    width: 8px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--grenat);
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+}
+
+::-webkit-scrollbar-track {
+    background: #ecf0f1;
+    border-radius: 10px;
+}
+
+:root {
+    --grenat: #581845;
+}
+
+@font-face {
+    font-family: ProximaSoft;
+    src: url("../font/ProximaSoft-Thin.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: ProximaSoft;
+}
+
+aside {
+    width: 60px;
+    height: 100vh;
+    background-color: var(--grenat);
+    box-shadow: 1px 1px 5px #59565644;
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+aside img {
+    width: 25px;
+}
+
+aside nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.container .right {
+    width: 100%;
+    padding: 0 30px;
+}
+
+.container .right nav {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    border-bottom: 1px solid rgb(241, 241, 241);
+}
+
+
+button {
+    padding: 10px 13px;
+    background-color: yellow;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px #96959546;
+    cursor: pointer;
+    color: #000;
+    font-weight: bold;
+    transition: 0.1s;
+    outline: none;
+}
+
+button:active {
+    transform: scale(0.95);
+    transition: 0.1s;
+}
+
+.title-container {
+    margin-top: 30px;
+    width: 100%;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.title-container h1 {
+    border-bottom: 1px solid var(--grenat);
+    padding-bottom: 3px;
+}
+
+.container .actions {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    margin-top: 30px;
+}
+
+.task-list {
+    width: 100%;
+    height: calc(100vh - 275px);
+    overflow: auto;
+    margin-top: 30px;
+    padding-right: 20px;
+}
+
+.task-list ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.task-list li {
+    width: 150px;
+    min-width: 150px;
+    height: 200px;
+    box-shadow: 1px 1px 5px #96959546;
+    border-radius: 3px;
+    border: #581845 solid 1px;
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    background: #f4dbed51;
+}
+
+.task-list li:active {
+    transform: scale(0.98);
+}
+
+.task-list li .task-title-container {
+    background-color: var(--grenat);
+    width: 100%;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+     padding: 8px 10px;
+     overflow: hidden;
+}
+
+.task-list h3 {
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.task-list .task-description {
+    padding: 8px 10px 0px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    height: 125px;
+    color: black;
+}
+
+.task-description p {
+    width: 100%;
+    height: 100%;
+}
+
+.task-description p {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.task-list .foot {
+    padding: 0 10px 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    color: black;
+}
+
+.left p {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.status span {
+    padding: 3px 6px 5px 6px;
+    border-radius: 40px;
+    font-size: 12px;
+}
+
+.status span.pending {
+    background-color: crimson;
+}
+
+.status span.running {
+    background-color: orange;
+}
+
+.status span.done {
+    background-color: green;
+    color: white;
+}

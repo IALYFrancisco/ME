@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    </style>
+    <link rel="stylesheet" href="../../css/AddTask.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../img/logo-de-IALY.png" type="image/x-icon">
+    <title>Add task - Backoffice | ME</title>
+</head>
+<body>
+    <form action="/backoffice/add-task" method="POST">
+        <section class="logo-container">
+            <a href="/">
+                <img src="../../img/logo-de-IALY.png" alt="Logo de IALY">
+            </a>
+            <h2>Add task</h2>
+        </section>
+        <section>
+            <label for="name">Task name</label>
+            <input type="text" name="name" id="name" required>
+        </section>
+        <section>
+            <label for="description">Task descriptions</label>
+            <textarea name="description" id="description" required></textarea>   
+        </section>
+        <section class="button-container">
+            <button>Submit</button>
+        </section>
+    </form>
+</body>
+</html>
