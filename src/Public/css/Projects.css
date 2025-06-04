@@ -177,9 +177,33 @@ td p {
     opacity: 0;
     pointer-events: none;
     transition: 250ms;
+    /* top: 0;
+    left: 0; */
 }
 
 .overlay.active {
     opacity: 1;
     pointer-events: auto;
+}
+
+.modal {
+    background-color: white;
+    width: 300px;
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    margin: 100px auto;
+    left: -50%;
+    right: -50%;
+    transition: 300ms;
+    transform: scale(1.1);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.429);
+    border-radius: 5px;
+    padding: 20px 15px;
+}
+
+.modal.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
 }
