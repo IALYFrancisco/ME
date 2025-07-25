@@ -32,8 +32,12 @@ aside nav ul {
     display: flex;
     flex-direction: column;
     gap: 30px;
+    list-style-type: none;
 }
 
+.right nav ul {
+    list-style-type: none;
+}
 
 .container {
     display: flex;
