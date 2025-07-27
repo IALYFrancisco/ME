@@ -177,8 +177,6 @@ td p {
     opacity: 0;
     pointer-events: none;
     transition: 250ms;
-    /* top: 0;
-    left: 0; */
 }
 
 .overlay.active {
