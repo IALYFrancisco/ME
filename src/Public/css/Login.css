@@ -1,14 +1,4 @@
-@font-face {
-    font-family: ProximaSoft;
-    src: url("../font/ProximaSoft-Thin.ttf");
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: ProximaSoft;
-}
+@import url('App.css');
 
 form {
     width: 300px;

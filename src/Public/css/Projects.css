@@ -1,34 +1,4 @@
-::-webkit-scrollbar {
-    width: 8px;
-    height: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: var(--grenat);
-    border-radius: 10px;
-    border: 3px solid #ffffff;
-}
-
-::-webkit-scrollbar-track {
-    background: #ecf0f1;
-    border-radius: 10px;
-}
-
-:root {
-    --grenat: #581845;
-}
-
-@font-face {
-    font-family: ProximaSoft;
-    src: url("../font/ProximaSoft-Thin.ttf");
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: ProximaSoft;
-}
+@import url('App.css');
 
 aside {
     width: 60px;
@@ -177,8 +147,6 @@ td p {
     opacity: 0;
     pointer-events: none;
     transition: 250ms;
-    /* top: 0;
-    left: 0; */
 }
 
 .overlay.active {
