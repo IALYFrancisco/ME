@@ -50,8 +50,21 @@ async function _postProject(request, response){
     }
 }
 
+async function DeleteProject(request, response){
+    try {
+        await Projects.findByIdAndDelete(request.body._id)
+        response.redirect("/backoffice/projects")
+
+    }catch(err){
+        console.log('Error deleting project:' + error)
+    }finally {
+        await disconnexion()
+    }
+}
+
 module.exports = {
     getAllProjects : _getAllProjects,
     addProject: _addProject,
-    postProject: _postProject
+    postProject: _postProject,
+    DeleteProject: DeleteProject
 }
