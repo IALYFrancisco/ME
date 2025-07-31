@@ -40,6 +40,11 @@ aside nav ul {
     border-bottom: 1px solid rgb(241, 241, 241);
 }
 
+.button-container {
+    display: flex;
+    column-gap: 10px;
+    justify-content: end;
+}
 
 button {
     padding: 10px 13px;
