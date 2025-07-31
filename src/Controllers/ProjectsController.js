@@ -1,6 +1,6 @@
 const express = require('express')
 const cors = require('cors')
-const { getAllProjects, addProject } = require('../Services/ProjectsServices')
+const { getAllProjects, addProject, DeleteProject } = require('../Services/ProjectsServices')
 
 const _project_router = express.Router()
 
@@ -21,6 +21,8 @@ _project_router.get("/get-all", getAllProjects)
 
 // Route en charge d'ajout d'un projet dans la base de donnée
 _project_router.post("/post", addProject)
+
+_project_router.post("/delete", DeleteProject)
 
 module.exports = {
     project_router : _project_router
