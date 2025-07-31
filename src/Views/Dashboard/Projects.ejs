@@ -10,9 +10,10 @@
 <body>
     <main class="container">
         <div class="overlay" onclick="closeModal()"></div>
-        <form action="/backoffice/delete" method="POST" class="modal">
+        <form action="/backoffice/project/delete" method="POST" class="modal">
             <h3>Project deletion</h3>
             <p>Are you sure to delete <span class="projectName"></span> project ?</p>
+            <input type="hidden" name="_id">
             <div class="button-container">
                 <button onclick="closeModal()" type="button">No</button>
                 <button type="submit">Yes</button>
@@ -56,7 +57,7 @@
                         </td>
                         <td>
                             <p class="project-actions">
-                                <img src="../../img/trash.png" alt="Icon de suppréssion de projet de ME" onclick="showModal('<%- project.name -%>')">
+                                <img src="../../img/trash.png" alt="Icon de suppréssion de projet de ME" onclick="showModal('<%- project.name -%>', '<%- project._id -%>')">
                                 <img src="../../img/edit.png" alt="Icon d'édition de projet de ME">
                             </p>
                         </td>

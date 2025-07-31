@@ -154,11 +154,12 @@ async function _postSubtask(request, response){
 
 async function DeleteProject(request, response){
     try {
+        await connexion()
         await Projects.findByIdAndDelete(request.body._id)
         response.redirect("/backoffice/projects")
 
     }catch(err){
-        console.log('Error deleting project:' + error)
+        console.log('Error deleting project:' + err)
     }finally {
         await disconnexion()
     }
