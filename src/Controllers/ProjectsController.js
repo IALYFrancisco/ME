@@ -22,8 +22,6 @@ _project_router.get("/get-all", getAllProjects)
 // Route en charge d'ajout d'un projet dans la base de donnée
 _project_router.post("/post", addProject)
 
-_project_router.post("/delete", DeleteProject)
-
 module.exports = {
     project_router : _project_router
 }
