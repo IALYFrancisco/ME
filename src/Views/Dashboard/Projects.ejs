@@ -11,12 +11,8 @@
     <main class="container">
         <div class="overlay" onclick="closeModal()"></div>
         <form action="/api/generate-key" method="POST" class="modal">
-            <h3>Deleting project</h3>
-            <p>Are you sure to delete project </p>
-            <section>
-                <label for="name">Name :</label>
-                <input type="name" name="name" id="name" required placeholder="name of api key">
-            </section>
+            <h3>Project deletion</h3>
+            <p>Are you sure to delete <span class="projectName"></span> project ?</p>
             <div class="button-container">
                 <button>Generate</button>
             </div>
@@ -59,7 +55,7 @@
                         </td>
                         <td>
                             <p class="project-actions">
-                                <img src="../../img/trash.png" alt="Icon de suppréssion de projet de ME" onclick="showModal()">
+                                <img src="../../img/trash.png" alt="Icon de suppréssion de projet de ME" onclick="showModal('<%- project.name -%>')">
                                 <img src="../../img/edit.png" alt="Icon d'édition de projet de ME">
                             </p>
                         </td>
