@@ -56,5 +56,5 @@ app.use('/authentication', authentication_router)
 app.use('/backoffice', isAuthenticated, dashboard_router)
 
 app.listen(process.env.APP_PORT, () => {
-    console.log(`L'application s'exécute sur ${process.env.APP_ADDRESS}`)
+    console.log(`The application is listening at ${process.env.APP_ADDRESS}`)
 })

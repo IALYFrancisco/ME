@@ -10,15 +10,13 @@
 <body>
     <main class="container">
         <div class="overlay" onclick="closeModal()"></div>
-        <form action="/api/generate-key" method="POST" class="modal">
-            <h3>Deleting project</h3>
-            <p>Are you sure to delete project </p>
-            <section>
-                <label for="name">Name :</label>
-                <input type="name" name="name" id="name" required placeholder="name of api key">
-            </section>
+        <form action="/backoffice/project/delete" method="POST" class="modal">
+            <h3>Project deletion</h3>
+            <p>Are you sure to delete <span class="projectName"></span> project ?</p>
+            <input type="hidden" name="_id">
             <div class="button-container">
-                <button>Generate</button>
+                <button onclick="closeModal()" type="button">No</button>
+                <button type="submit">Yes</button>
             </div>
         </form>
         <section class="left">
@@ -59,7 +57,7 @@
                         </td>
                         <td>
                             <p class="project-actions">
-                                <img src="../../img/trash.png" alt="Icon de suppréssion de projet de ME" onclick="showModal()">
+                                <img src="../../img/trash.png" alt="Icon de suppréssion de projet de ME" onclick="showModal('<%- project.name -%>', '<%- project._id -%>')">
                                 <img src="../../img/edit.png" alt="Icon d'édition de projet de ME">
                             </p>
                         </td>

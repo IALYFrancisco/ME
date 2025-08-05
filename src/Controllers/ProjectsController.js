@@ -1,6 +1,6 @@
 const express = require('express')
 const cors = require('cors')
-const { getAllProjects, addProject } = require('../Services/ProjectsServices')
+const { getAllProjects, addProject, DeleteProject } = require('../Services/ProjectsServices')
 
 const _project_router = express.Router()
 

@@ -5,10 +5,7 @@ async function _getAllProjects(request, response) {
     try {
         await connexion()
         let projects = await Projects.find({})
-        response.status(200).json({
-            message: "Liste de tout les projets.",
-            data: projects
-        })
+        response.status(200).json(projects)
     }catch(error){
         console.log({here : error})
     }finally{
@@ -53,5 +50,5 @@ async function _postProject(request, response){
 module.exports = {
     getAllProjects : _getAllProjects,
     addProject: _addProject,
-    postProject: _postProject
+    postProject: _postProject,
 }
