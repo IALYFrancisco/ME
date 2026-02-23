@@ -1,7 +1,9 @@
 const dotenv = require('dotenv')
 const { EDOTASK } = require('./services/services')
+const { DbConnection } = require('../src/Services/db')
 
 dotenv.config()
+DbConnection()
 
 try {
     EDOTASK()
