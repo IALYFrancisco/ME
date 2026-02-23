@@ -11,10 +11,12 @@ const { authentication_router } = require('./src/Controllers/AuthenticationContr
 const { getRoot, isAuthenticated } = require('./src/Services/AuthenticationServices')
 const { dashboard_router } = require('./src/Controllers/DashboardController')
 const moment = require('moment')
+const { DbConnection } = require('./src/Services/db')
 
 moment.locale("en")
 
 dotenv.config()
+DbConnection()
 
 const app = express()
 
