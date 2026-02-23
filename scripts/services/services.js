@@ -1,4 +1,3 @@
-const { connexion, disconnexion } = require("../../src/Services/DbServices")
 const { Users } = require('../../src/Models/UsersModel')
 const fs = require('fs')
 const os = require('os')
@@ -7,6 +6,7 @@ const path = require('path')
 const { default: axios } = require("axios");
 const chalk = require('chalk')
 const crypto = require('crypto')
+const { disconnect } = require("mongoose")
 
 var root_password = crypto.randomBytes(32).toString('hex')
 
@@ -18,26 +18,22 @@ var userToCreate = {
 }
 
 async function checkSuperuser(){
-    await connexion()
     let user = await Users.findOne({email : process.env.SUPERUSER_EMAIL})
     if(user){
-        await disconnexion()
         return true
     }
     else{
-        await disconnexion()
         return false
     }
+    await disconnect()
 }
 
 async function createSuperuser(){
     try{
         console.log(chalk.yellow("Creating superuser ..."))
         userToCreate.password = await hashpassword(`${root_password}`)
-        await connexion()
         let user = Users(userToCreate)
         await user.save()
-        await disconnexion()
         return true
     }catch(err){
         console.log({
@@ -45,6 +41,8 @@ async function createSuperuser(){
             error: err
         })
         return false
+    }finally{
+        await disconnect()
     }
 }
 

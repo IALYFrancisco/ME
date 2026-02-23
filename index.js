@@ -11,10 +11,13 @@ const { authentication_router } = require('./src/Controllers/AuthenticationContr
 const { getRoot, isAuthenticated } = require('./src/Services/AuthenticationServices')
 const { dashboard_router } = require('./src/Controllers/DashboardController')
 const moment = require('moment')
+const { DbConnection } = require('./src/Services/db')
+const chalk = require('chalk')
 
 moment.locale("en")
 
 dotenv.config()
+DbConnection()
 
 const app = express()
 
@@ -56,5 +59,5 @@ app.use('/authentication', authentication_router)
 app.use('/backoffice', isAuthenticated, dashboard_router)
 
 app.listen(process.env.APP_PORT, () => {
-    console.log(`The application is listening at ${process.env.APP_ADDRESS}`)
+    console.log(chalk.bgHex('#4a78a6').hex("#fffbfc")(`Server is runnning at ${process.env.APP_ADDRESS}`))
 })
