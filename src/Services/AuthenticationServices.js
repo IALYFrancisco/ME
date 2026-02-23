@@ -1,5 +1,4 @@
 const { Users } = require("../Models/UsersModel")
-const { connexion, disconnexion } = require("./DbServices")
 const bcrypt = require('bcrypt')
 
 function _getRoot(request, response){
@@ -21,7 +20,6 @@ function _getLogin(request, response){
 async function _postLogin(request, response){
     try{
         const { email, password } = request.body
-        await connexion()
         let user = await Users.findOne({email})
         if(!user){
             request.flash('error', "User doesn't exist.")
@@ -41,8 +39,6 @@ async function _postLogin(request, response){
         console.log("User connexion failure:" + _error)
         request.flash('error', 'Failed to log in, try next time.')
         return response.redirect("/authentication/login")
-    }finally{
-        await disconnexion()
     }
 }
 

@@ -2,7 +2,6 @@ const { APIKEYS } = require("../Models/APIKEYSModel")
 const { Projects } = require("../Models/ProjectsModel")
 const { SubTask } = require("../Models/SubTask")
 const { Task } = require("../Models/Task")
-const { connexion, disconnexion } = require("./DbServices")
 
 function _getDashboard(request, response){
     response.render('Dashboard/Dashboard')
@@ -10,7 +9,6 @@ function _getDashboard(request, response){
 
 async function _getAPIs(request, response){
     try{
-        await connexion()
         let _keys = await APIKEYS.find({})
         let _projects = await getProjectsList()
         let context = {
@@ -20,8 +18,6 @@ async function _getAPIs(request, response){
         response.render('Dashboard/APIs', context)
     }catch(error){
         console.log("Error getting apis page.")
-    }finally{
-        await disconnexion()
     }
 }
 
@@ -39,19 +35,15 @@ async function _getProjects(request, response){
 
 async function getProjectsList(){
     try {
-        await connexion()
         let _projects = await Projects.find({})
         return _projects
     }catch(err){
         return err
-    }finally{
-        await disconnexion()
     }
 }
 
 async function _getTasks(request, response){
     try {
-        await connexion()
         let _tasks = await Task.find({})
         let context = {
             tasks: _tasks
@@ -76,7 +68,6 @@ function _getAddTask(request, response){
 
 async function _postTask(request, response){
     try{
-        await connexion()
         let newTask = Task(request.body)
         let result = await newTask.save()
         if(result){
@@ -85,14 +76,11 @@ async function _postTask(request, response){
         }
     }catch(err){
         console.log({message: "Error adding task.", error: err})
-    }finally{
-        await disconnexion()
     }
 }
 
 async function _getDetailsTask(request, response){
     try{
-        await connexion()
         let _task = await Task.find({ _id: `${request.params.id}` })
         let _subtasks = await SubTask.find({ task_id: request.params.id })
         let context = {
@@ -102,40 +90,31 @@ async function _getDetailsTask(request, response){
         response.render('Dashboard/DetailsTask', context)
     }catch(err){
         console.log({ message: "Error getting DetailsTask page", error: err })
-    }finally{
-        await disconnexion()
     }
 }
 
 async function _deleteTask(request, response){
     try{
-        await connexion()
         let result = await Task.findByIdAndDelete(request.params.id)
         if(result) console.log({message: "Task deleted successfully."})
         response.redirect('/backoffice/tasks')
     }catch(err){
         console.log({message: "Error deleting task.", error: err})
-    }finally{
-        await disconnexion()
     }
 }
 
 async function _putTask(request, response) {
     try{
-        await connexion()
         let result = await Task.findByIdAndUpdate(request.params.id, request.body)
         if (result) console.log({message: "Task status changed successfully."})
         response.redirect(`/backoffice/task-details/${request.params.id}`)
     }catch(err){
         console.log({message: "Error putting task.", error: err})
-    }finally{
-        await disconnexion()
     }
 }
 
 async function _postSubtask(request, response){
     try{
-        await connexion()
         let newSubtask = SubTask(request.body)
         let result = await newSubtask.save()
         if(result){
@@ -147,21 +126,16 @@ async function _postSubtask(request, response){
         }
     }catch(err){
         console.log({message: "Error adding subtask.", error: err})
-    }finally{
-        await disconnexion()
     }
 }
 
 async function DeleteProject(request, response){
     try {
-        await connexion()
         await Projects.findByIdAndDelete(request.body._id)
         response.redirect("/backoffice/projects")
 
     }catch(err){
         console.log('Error deleting project:' + err)
-    }finally {
-        await disconnexion()
     }
 }
 
