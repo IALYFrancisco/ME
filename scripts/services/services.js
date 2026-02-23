@@ -18,14 +18,17 @@ var userToCreate = {
 }
 
 async function checkSuperuser(){
-    let user = await Users.findOne({email : process.env.SUPERUSER_EMAIL})
-    if(user){
-        return true
+    try{
+        let user = await Users.findOne({email : process.env.SUPERUSER_EMAIL})
+        if(user){
+            return true
+        }
+        else{
+            return false
+        }
+    }finally{
+        await disconnect()
     }
-    else{
-        return false
-    }
-    await disconnect()
 }
 
 async function createSuperuser(){
